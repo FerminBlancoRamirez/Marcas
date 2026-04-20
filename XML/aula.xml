@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<universidad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:noNamespaceSchemaLocation="aula.xsd">
+    <estudiante>
+        <nombre>Juan Pérez</nombre>
+        <edad>20</edad>
+        <carrera>Ingeniería Informática</carrera>
+    </estudiante>
+    <estudiante>
+        <nombre>María López</nombre>
+        <edad>22</edad>
+        <carrera>Arquitectura</carrera>
+    </estudiante>
+    <estudiante>
+        <nombre>Carlos Ruiz</nombre>
+        <edad>21</edad>
+        <carrera>Medicina</carrera>
+    </estudiante>
+    <estudiante>
+        <nombre>Ana Belén García</nombre>
+        <edad>23</edad>
+        <carrera>Derecho</carrera>
+    </estudiante>
+    <estudiante>
+        <nombre>Diego Martínez</nombre>
+        <edad>19</edad>
+        <carrera>Física</carrera>
+    </estudiante>
+    <estudiante>
+        <nombre>Lucía Fernández</nombre>
+        <edad>24</edad>
+        <carrera>Bellas Artes</carrera>
+    </estudiante>
+    <estudiante>
+        <nombre>Javier Sanz</nombre>
+        <edad>22</edad>
+        <carrera>Economía</carrera>
+    </estudiante>
+    <estudiante>
+        <nombre>Elena Moreno</nombre>
+        <edad>20</edad>
+        <carrera>Psicología</carrera>
+    </estudiante>
+    <estudiante>
+        <nombre>Pablo Castro</nombre>
+        <edad>25</edad>
+        <carrera>Ingeniería Aeroespacial</carrera>
+    </estudiante>
+    <estudiante>
+        <nombre>Sofía Vargas</nombre>
+        <edad>21</edad>
+        <carrera>Periodismo</carrera>
+    </estudiante>
+    <estudiante>
+        <nombre>Marcos Soler</nombre>
+        <edad>19</edad>
+        <carrera>Biotecnología</carrera>
+    </estudiante>
+    <estudiante>
+        <nombre>Irene Jiménez</nombre>
+        <edad>22</edad>
+        <carrera>Historia del Arte</carrera>
+    </estudiante>
+</universidad>

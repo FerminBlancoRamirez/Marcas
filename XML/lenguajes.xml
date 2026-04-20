@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<lenguajes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:noNamespaceSchemaLocation="lenguajes.xsd">
+    <lenguaje>
+        <nombre>Python</nombre>
+        <creador>Guido van Rossum</creador>
+        <anioCreacion>1991</anioCreacion>
+        <enlaceWeb>https://www.python.org/</enlaceWeb>
+    </lenguaje>
+    <lenguaje>
+        <nombre>Java</nombre>
+        <creador>James Gosling</creador>
+        <anioCreacion>1995</anioCreacion>
+        <enlaceWeb>https://www.java.com/</enlaceWeb>
+    </lenguaje>
+    <lenguaje>
+        <nombre>C++</nombre>
+        <creador>Bjarne Stroustrup</creador>
+        <anioCreacion>1985</anioCreacion>
+        <descripcion>C++ is a general-purpose programming language created as an extension of the C programming language, or "C with Classes".</descripcion>
+    </lenguaje>
+    <lenguaje>
+        <nombre>JavaScript</nombre>
+        <creador>Brendan Eich</creador>
+        <anioCreacion>1995</anioCreacion>
+        <enlaceWeb>https://developer.mozilla.org/en-US/docs/Web/JavaScript</enlaceWeb>
+    </lenguaje>
+    <lenguaje>
+        <nombre>Ruby</nombre>
+        <creador>Yukihiro Matsumoto</creador>
+        <anioCreacion>1995</anioCreacion>
+        <enlaceWeb>https://www.ruby-lang.org/</enlaceWeb>
+    </lenguaje>
+    <lenguaje>
+        <nombre>Swift</nombre>
+        <creador>Chris Lattner (Apple)</creador>
+        <anioCreacion>2014</anioCreacion>
+        <descripcion>Swift is a general-purpose, multi-paradigm, compiled programming language developed by Apple Inc. and the open-source community.</descripcion>
+    </lenguaje>
+    <lenguaje>
+        <nombre>Go</nombre>
+        <creador>Robert Griesemer, Rob Pike, and Ken Thompson (Google)</creador>
+        <anioCreacion>2009</anioCreacion>
+        <enlaceWeb>https://go.dev/</enlaceWeb>
+    </lenguaje>
+    <lenguaje>
+        <nombre>PHP</nombre>
+        <creador>Rasmus Lerdorf</creador>
+        <anioCreacion>1994</anioCreacion>
+        <enlaceWeb>https://www.php.net/</enlaceWeb>
+    </lenguaje>
+    <lenguaje>
+        <nombre>TypeScript</nombre>
+        <creador>Anders Hejlsberg (Microsoft)</creador>
+        <anioCreacion>2012</anioCreacion>
+        <descripcion>TypeScript is a strict syntactical superset of JavaScript and adds optional static typing to the language.</descripcion>
+    </lenguaje>
+    <lenguaje>
+        <nombre>Rust</nombre>
+        <creador>Graydon Hoare (Mozilla)</creador>
+        <anioCreacion>2010</anioCreacion>
+        <enlaceWeb>https://www.rust-lang.org/</enlaceWeb>
+    </lenguaje>
+    <lenguaje>
+        <nombre>Kotlin</nombre>
+        <creador>JetBrains</creador>
+        <anioCreacion>2011</anioCreacion>
+        <enlaceWeb>https://kotlinlang.org/</enlaceWeb>
+    </lenguaje>
+    <lenguaje>
+        <nombre>C#</nombre>
+        <creador>Anders Hejlsberg (Microsoft)</creador>
+        <anioCreacion>2000</anioCreacion>
+        <descripcion>C# is a modern, object-oriented, and type-safe programming language that runs on the .NET framework.</descripcion>
+    </lenguaje>
+    <lenguaje>
+        <nombre>SQL</nombre>
+        <creador>Donald D. Chamberlin and Raymond F. Boyce (IBM)</creador>
+        <anioCreacion>1974</anioCreacion>
+        <enlaceWeb>https://www.iso.org/standard/63343.html</enlaceWeb>
+    </lenguaje>
+</lenguajes>

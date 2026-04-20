@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <!--Definimos elementos simples-->
+    <xs:element name="nombre" type="xs:string"/>
+    <xs:element name="creador" type="xs:string"/>
+    <xs:element name="anioCreacion" type="xs:gYear"/>
+    <xs:element name="descripcion" type="xs:string"/>
+    <xs:element name="enlaceWeb" type="xs:anyURI"/>
+
+    <!--Definimos los elementos complejos-->
+    <xs:element name="lenguaje">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="nombre"/>
+                <xs:element ref="creador"/>
+                <xs:element ref="anioCreacion"/>
+                <xs:choice>
+                    <xs:element ref="descripcion"/>
+                    <xs:element ref="enlaceWeb"/>
+                </xs:choice>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!--Definimos el elemento raiz-->
+    <xs:element name="lenguajes">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="lenguaje" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<empresa nombreEmpresa="TechCorp" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="empresa.xsd" >
+    <empleado id="_1">
+        <nombre>John</nombre>
+        <apellido>Doe</apellido>
+        <fechaNacimiento>1990-05-15</fechaNacimiento>
+        <salario>5000.00</salario>
+        <activo>true</activo>
+        <horaEntrada>09:00:00</horaEntrada>
+    </empleado>
+    <empleado id="_2">
+        <nombre>Jane</nombre>
+        <apellido>Smith</apellido>
+        <fechaNacimiento>1985-08-20</fechaNacimiento>
+        <salario>6000.50</salario>
+        <activo>false</activo>
+        <horaEntrada>08:30:00</horaEntrada>
+    </empleado>
+    <empleado id="_3">
+        <nombre>Carlos</nombre>
+        <apellido>García</apellido>
+        <fechaNacimiento>1992-03-10</fechaNacimiento>
+        <salario>4500.75</salario>
+        <activo>true</activo>
+        <horaEntrada>08:00:00</horaEntrada>
+    </empleado>
+    <empleado id="_4">
+        <nombre>Elena</nombre>
+        <apellido>Martínez</apellido>
+        <fechaNacimiento>1988-11-25</fechaNacimiento>
+        <salario>5500.00</salario>
+        <activo>true</activo>
+        <horaEntrada>09:15:00</horaEntrada>
+    </empleado>
+    <empleado id="_5">
+        <nombre>Luis</nombre>
+        <apellido>Rodríguez</apellido>
+        <fechaNacimiento>1995-07-04</fechaNacimiento>
+        <salario>3800.50</salario>
+        <activo>false</activo>
+        <horaEntrada>08:45:00</horaEntrada>
+    </empleado>
+    <empleado id="_6">
+        <nombre>Ana</nombre>
+        <apellido>Sanchez</apellido>
+        <fechaNacimiento>1982-01-30</fechaNacimiento>
+        <salario>7200.00</salario>
+        <activo>true</activo>
+        <horaEntrada>07:30:00</horaEntrada>
+    </empleado>
+    <empleado id="_7">
+        <nombre>Roberto</nombre>
+        <apellido>Gomez</apellido>
+        <fechaNacimiento>1991-09-12</fechaNacimiento>
+        <salario>4800.25</salario>
+        <activo>true</activo>
+        <horaEntrada>09:00:00</horaEntrada>
+    </empleado>
+    <empleado id="_8">
+        <nombre>Lucía</nombre>
+        <apellido>Fernández</apellido>
+        <fechaNacimiento>1987-05-20</fechaNacimiento>
+        <salario>6300.90</salario>
+        <activo>false</activo>
+        <horaEntrada>08:20:00</horaEntrada>
+    </empleado>
+    <empleado id="_9">
+        <nombre>Miguel</nombre>
+        <apellido>Lopez</apellido>
+        <fechaNacimiento>1993-12-08</fechaNacimiento>
+        <salario>4200.00</salario>
+        <activo>true</activo>
+        <horaEntrada>10:00:00</horaEntrada>
+    </empleado>
+    <empleado id="_10">
+        <nombre>Sofía</nombre>
+        <apellido>Perez</apellido>
+        <fechaNacimiento>1990-06-15</fechaNacimiento>
+        <salario>5150.60</salario>
+        <activo>true</activo>
+        <horaEntrada>08:10:00</horaEntrada>
+    </empleado>
+    <empleado id="_11">
+        <nombre>Diego</nombre>
+        <apellido>Moreno</apellido>
+        <fechaNacimiento>1984-02-28</fechaNacimiento>
+        <salario>6800.00</salario>
+        <activo>false</activo>
+        <horaEntrada>09:30:00</horaEntrada>
+    </empleado>
+    <empleado id="_12">
+        <nombre>Laura</nombre>
+        <apellido>Jiménez</apellido>
+        <fechaNacimiento>1996-08-19</fechaNacimiento>
+        <salario>3500.40</salario>
+        <activo>true</activo>
+        <horaEntrada>08:50:00</horaEntrada>
+    </empleado>
+</empresa>

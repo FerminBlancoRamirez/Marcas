@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <!--Elementos simples-->
+    <xs:element name="nombre" type="Capitalizer"/>
+    <xs:element name="apellido" type="Capitalizer"/>
+    <xs:element name="fechaNacimiento">
+        <xs:simpleType>
+            <xs:restriction base="xs:date">
+                <xs:minInclusive value="1975-01-01"/>
+                <xs:maxInclusive value="1999-12-31"/>
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>
+    <xs:element name="salario">
+        <xs:simpleType>
+            <xs:restriction base="xs:decimal">
+                <xs:minInclusive value="1000"/>
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>
+    <xs:element name="activo" type="xs:boolean"/>
+    <xs:element name="horaEntrada">
+        <xs:simpleType>
+            <xs:restriction base="xs:time">
+                <xs:minInclusive value="06:00:00"/>
+                <xs:maxInclusive value="10:00:00"/>
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>
+
+    <!--Declaramos la restriccion de mayusculas-->
+    <xs:simpleType name="Capitalizer">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[A-Z][A-Za-z\s].*"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+
+
+    <!--Elementos complejos-->
+    <xs:element name="empleado">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="nombre"/>
+                <xs:element ref="apellido"/>
+                <xs:element ref="fechaNacimiento"/>
+                <xs:element ref="salario"/>
+                <xs:element ref="activo"/>
+                <xs:element ref="horaEntrada"/>
+            </xs:sequence>
+            <xs:attribute name="id" type="xs:ID" use="required"/>
+        </xs:complexType>
+    </xs:element>
+
+    <!--Definimos el elemento RAIZ-->
+    <xs:element name="empresa">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="empleado" maxOccurs="unbounded"/>
+            </xs:sequence>
+            <xs:attribute name="nombreEmpresa" type="xs:string" fixed="TechCorp"/>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

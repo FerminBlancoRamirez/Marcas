@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<catalog nombreBiblioteca="AvenidaMadrid" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="catalog.xsd">
+    <book prestado="true">
+        <title>Clean Code: A Handbook of Agile Software Craftsmanship</title>
+        <author>Robert C. Martin</author>
+        <year>2008</year>
+        <publisher>Prentice Hall</publisher>
+    </book>
+    <book prestado="false">
+        <title>Introduction to Algorithms</title>
+        <author>Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, and Clifford Stein</author>
+        <year>2009</year>
+        <publisher>MIT Press</publisher>
+    </book>
+    <book prestado="true">
+        <title>Design Patterns: Elements of Reusable Object-Oriented Software</title>
+        <author>Erich Gamma, Richard Helm, Ralph Johnson, and John Vlissides</author>
+        <year>1994</year>
+        <publisher>Addison-Wesley</publisher>
+    </book>
+    <book prestado="true">
+        <title>Effective Java</title>
+        <author>Joshua Bloch</author>
+        <year>2018</year>
+        <publisher>Addison-Wesley</publisher>
+    </book>
+    <book prestado="true">
+        <title>The Pragmatic Programmer: Your Journey To Mastery</title>
+        <author>Andrew Hunt and David Thomas</author>
+        <year>1999</year>
+        <publisher>Addison-Wesley</publisher>
+    </book>
+    <book prestado="true">
+        <title>Refactoring: Improving the Design of Existing Code</title>
+        <author>Martin Fowler</author>
+        <year>1999</year>
+        <publisher>Addison-Wesley</publisher>
+    </book>
+    <book prestado="true">
+        <title>Code Complete: A Practical Handbook of Software Construction</title>
+        <author>Steve McConnell</author>
+        <year>2004</year>
+        <publisher>Microsoft Press</publisher>
+    </book>
+    <book prestado="false">
+        <title>The Mythical Man-Month: Essays on Software Engineering</title>
+        <author>Frederick P. Brooks Jr.</author>
+        <year>1975</year>
+        <publisher>Addison-Wesley</publisher>
+    </book>
+    <book prestado="false">
+        <title>Cracking the Coding Interview</title>
+        <author>Gayle Laakmann McDowell</author>
+        <year>2015</year>
+        <publisher>CareerCup</publisher>
+    </book>
+    <book prestado="false">
+        <title>Head First Design Patterns</title>
+        <author>Eric Freeman and Elisabeth Robson</author>
+        <year>2004</year>
+        <publisher>O'Reilly Media</publisher>
+    </book>
+    <book prestado="false">
+        <title>Compilers: Principles, Techniques, and Tools</title>
+        <author>Alfred V. Aho, Monica S. Lam, Ravi Sethi, and Jeffrey D. Ullman</author>
+        <year>2006</year>
+        <publisher>Pearson</publisher>
+    </book>
+    <book prestado="true">
+        <title>Structure and Interpretation of Computer Programs</title>
+        <author>Harold Abelson and Gerald Jay Sussman</author>
+        <year>1996</year>
+        <publisher>MIT Press</publisher>
+    </book>
+    <book prestado="true">
+        <title>Artificial Intelligence: A Modern Approach</title>
+        <author>Stuart Russell and Peter Norvig</author>
+        <year>2010</year>
+        <publisher>Prentice Hall</publisher>
+    </book>
+    <book prestado="true">
+        <title>Continuous Delivery</title>
+        <author>Jez Humble and David Farley</author>
+        <year>2010</year>
+        <publisher>Addison-Wesley</publisher>
+    </book>
+</catalog>
