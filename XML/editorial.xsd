@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <!--Elementos simples-->
+    <xs:element name="nombreEmpresa" type="xs:string"/>
+    <xs:element name="subtitulo" type="xs:string"/>
+    <xs:element name="descripcion" type="xs:string"/>
+    <xs:element name="fechaInforme" type="xs:date"/>
+
+    <!--atributo simple-->
+    <xs:attribute name="nombre">
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:enumeration value="Norte"/>
+                <xs:enumeration value="Centro"/>
+                <xs:enumeration value="Sur"/>
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:attribute>
+
+    <xs:attribute name="num">
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:enumeration value="1"/>
+                <xs:enumeration value="2"/>
+                <xs:enumeration value="3"/>
+                <xs:enumeration value="4"/>
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:attribute>
+
+    <!--Elementos complejos-->
+    <xs:element name="trimestre">
+        <xs:complexType>
+            <xs:simpleContent>
+                <xs:extension base="xs:string">
+                    <xs:attribute name="num" type="xs:string" use="required"/>
+                </xs:extension>
+            </xs:simpleContent>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="cabecera">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="nombreEmpresa"/>
+                <xs:element ref="subtitulo"/>
+                <xs:element ref="descripcion"/>
+                <xs:element ref="fechaInforme"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="region">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="trimestre" maxOccurs="4" minOccurs="4"/>
+            </xs:sequence>
+            <xs:attribute ref="nombre" use="required"/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="datos">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="region" type="xs:complexType" maxOccurs="3" minOccurs="3"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!--Elemento raiz-->
+    <xs:element name="informe">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="cabecera" minOccurs="1" maxOccurs="unbounded"/>
+                <xs:element ref="datos" minOccurs="1" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
