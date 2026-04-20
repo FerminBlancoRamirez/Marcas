@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <!-- Definimos los elementos simples sin restricciones -->
+    <xs:element name="cantidad" type="xs:integer"/>
+
+    <!-- Definimos los elementos simples con restrincciones -->
+    <!-- restriccion para que el precio no sea 0 -->
+    <xs:element name="precio">
+        <xs:simpleType>
+            <xs:restriction base="xs:decimal">
+                <xs:minInclusive value="0.0"/>
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>
+    <!-- restriccion para que el nombre tenga un minimo de 4 caracteres-->
+    <xs:element name="nombre">
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:minLength value="4"/>
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>
+
+    <!-- Definimos los elementos complejos(los que agrupan a los simples)-->
+    <xs:element name="producto">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="nombre"/>
+                <xs:element ref="precio"/>
+                <xs:element ref="cantidad"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Definimos al elemento raiz(agrupa todo tanto complejos como simples) -->
+    <xs:element name="tienda">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="producto" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
