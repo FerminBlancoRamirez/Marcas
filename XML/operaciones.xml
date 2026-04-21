@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Operaciones xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:noNamespaceSchemaLocation="operaciones.xsd">
+    <operacion>
+        <venta>
+            <titulosVendidos>
+                <titulo>Clean Code</titulo>
+                <cantidadVendidos>5</cantidadVendidos>
+                <entregado>true</entregado>
+                <importe moneda="EUR">150</importe>
+            </titulosVendidos>
+        </venta>
+    </operacion>
+
+    <operacion>
+        <compra>
+            <titulosComprados>
+                <titulo>Introduction to Algorithms</titulo>
+                <proveedor>MIT Press</proveedor>
+                <fechaCompra>2024-01-15</fechaCompra>
+            </titulosComprados>
+        </compra>
+    </operacion>
+
+    <operacion>
+        <venta>
+            <titulosVendidos>
+                <titulo>Effective Java</titulo>
+                <cantidadVendidos>2</cantidadVendidos>
+                <entregado>false</entregado>
+                <importe moneda="EUR">80</importe>
+            </titulosVendidos>
+        </venta>
+    </operacion>
+
+    <operacion>
+        <compra>
+            <titulosComprados>
+                <titulo>Design Patterns</titulo>
+                <proveedor>Addison-Wesley</proveedor>
+                <fechaCompra>2024-02-10</fechaCompra>
+            </titulosComprados>
+        </compra>
+    </operacion>
+
+    <operacion>
+        <venta>
+            <titulosVendidos>
+                <titulo>JavaScript: The Good Parts</titulo>
+                <cantidadVendidos>10</cantidadVendidos>
+                <entregado>true</entregado>
+                <importe moneda="USD">250</importe>
+            </titulosVendidos>
+            <titulosVendidos>
+                <titulo>Eloquent JavaScript</titulo>
+                <cantidadVendidos>3</cantidadVendidos>
+                <entregado>true</entregado>
+                <importe moneda="USD">90</importe>
+            </titulosVendidos>
+        </venta>
+    </operacion>
+
+    <operacion>
+        <compra>
+            <titulosComprados>
+                <titulo>The Pragmatic Programmer</titulo>
+                <proveedor>Pearson Education</proveedor>
+                <fechaCompra>2024-03-05</fechaCompra>
+            </titulosComprados>
+        </compra>
+    </operacion>
+
+    <operacion>
+        <venta>
+            <titulosVendidos>
+                <titulo>Python Crash Course</titulo>
+                <cantidadVendidos>1</cantidadVendidos>
+                <entregado>true</entregado>
+                <importe moneda="EUR">35</importe>
+            </titulosVendidos>
+        </venta>
+    </operacion>
+
+    <operacion>
+        <compra>
+            <titulosComprados>
+                <titulo>You Don't Know JS</titulo>
+                <proveedor>O'Reilly Media</proveedor>
+                <fechaCompra>2024-03-20</fechaCompra>
+            </titulosComprados>
+        </compra>
+    </operacion>
+
+    <operacion>
+        <venta>
+            <titulosVendidos>
+                <titulo>Code Complete</titulo>
+                <cantidadVendidos>4</cantidadVendidos>
+                <entregado>false</entregado>
+                <importe moneda="EUR">180</importe>
+            </titulosVendidos>
+        </venta>
+    </operacion>
+
+    <operacion>
+        <compra>
+            <titulosComprados>
+                <titulo>Refactoring</titulo>
+                <proveedor>Amazon Books</proveedor>
+                <fechaCompra>2024-04-01</fechaCompra>
+            </titulosComprados>
+        </compra>
+    </operacion>
+</Operaciones>

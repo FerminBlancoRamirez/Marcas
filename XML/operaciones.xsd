@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <!--Elementos simples-->
+    <xs:element name="titulo" type="xs:string"/>
+    <xs:element name="cantidadVendidos" type="xs:integer"/>
+    <xs:element name="entregado" type="xs:boolean"/>
+    <xs:element name="importe">
+        <xs:complexType>
+            <xs:simpleContent>
+                <xs:extension base="xs:integer">
+                    <xs:attribute name="moneda" type="xs:string" use="required"/>
+                </xs:extension>
+            </xs:simpleContent>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="proveedor" type="xs:string"/>
+    <xs:element name="fechaCompra" type="xs:date"/>
+
+    <!--Elementos complejos-->
+    <xs:element name="titulosVendidos">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="titulo"/>
+                <xs:element ref="cantidadVendidos"/>
+                <xs:element ref="entregado" minOccurs="0"/>
+                <xs:element ref="importe"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="titulosComprados">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="titulo"/>
+                <xs:element ref="proveedor"/>
+                <xs:element ref="fechaCompra"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="venta">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="titulosVendidos" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="compra">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="titulosComprados" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="operacion">
+        <xs:complexType>
+            <xs:choice maxOccurs="unbounded" minOccurs="1">
+                <xs:element ref="venta" maxOccurs="unbounded"/>
+                <xs:element ref="compra" maxOccurs="unbounded"/>
+            </xs:choice>
+        </xs:complexType>
+    </xs:element>
+
+    <!--Elemento Raiz-->
+    <xs:element name="Operaciones">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="operacion" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
