@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tienda xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="tienda.xsd">
+    <producto>
+        <nombre>Teléfono móvil</nombre>
+        <precio>299.99</precio>
+        <cantidad>10</cantidad>
+    </producto>
+    <producto>
+        <nombre>Ordenador portátil</nombre>
+        <precio>899.99</precio>
+        <cantidad>5</cantidad>
+    </producto>
+    <producto>
+        <nombre>Televisor 4K</nombre>
+        <precio>450.00</precio>
+        <cantidad>8</cantidad>
+    </producto>
+    <producto>
+        <nombre>Auriculares Bluetooth</nombre>
+        <precio>59.90</precio>
+        <cantidad>25</cantidad>
+    </producto>
+    <producto>
+        <nombre>Reloj inteligente</nombre>
+        <precio>129.00</precio>
+        <cantidad>15</cantidad>
+    </producto>
+    <producto>
+        <nombre>Teclado mecánico</nombre>
+        <precio>45.50</precio>
+        <cantidad>12</cantidad>
+    </producto>
+    <producto>
+        <nombre>Ratón ergonómico</nombre>
+        <precio>25.99</precio>
+        <cantidad>30</cantidad>
+    </producto>
+    <producto>
+        <nombre>Monitor 27 pulgadas</nombre>
+        <precio>199.00</precio>
+        <cantidad>6</cantidad>
+    </producto>
+    <producto>
+        <nombre>Disco duro externo</nombre>
+        <precio>75.00</precio>
+        <cantidad>20</cantidad>
+    </producto>
+    <producto>
+        <nombre>Altavoz inteligente</nombre>
+        <precio>49.95</precio>
+        <cantidad>18</cantidad>
+    </producto>
+    <producto>
+        <nombre>Cámara web HD</nombre>
+        <precio>35.00</precio>
+        <cantidad>10</cantidad>
+    </producto>
+    <producto>
+        <nombre>Tableta gráfica</nombre>
+        <precio>115.00</precio>
+        <cantidad>7</cantidad>
+    </producto>
+</tienda>
