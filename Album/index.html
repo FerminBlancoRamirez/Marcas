@@ -1,0 +1,798 @@
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content=""/>
+    <meta
+            name="author"
+            content="Mark Otto, Jacob Thornton, and Bootstrap contributors"
+    />
+    <meta name="generator" content="Astro v5.13.2"/>
+    <title>Mejores de la historia de la UFC· Bootstrap v5.3</title>
+    <link
+            rel="canonical"
+            href="https://getbootstrap.com/docs/5.3/examples/album/"
+    />
+    <script src="../js/color-modes.js"></script>
+    <link href="../css/bootstrap.min.css" rel="stylesheet"/>
+    <meta name="theme-color" content="#712cf9"/>
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+
+        .b-example-divider {
+            width: 100%;
+            height: 3rem;
+            background-color: #0000001a;
+            border: solid rgba(0, 0, 0, 0.15);
+            border-width: 1px 0;
+            box-shadow: inset 0 0.5em 1.5em #0000001a,
+            inset 0 0.125em 0.5em #00000026;
+        }
+
+        .b-example-vr {
+            flex-shrink: 0;
+            width: 1.5rem;
+            height: 100vh;
+        }
+
+        .bi {
+            vertical-align: -0.125em;
+            fill: currentColor;
+        }
+
+        .nav-scroller {
+            position: relative;
+            z-index: 2;
+            height: 2.75rem;
+            overflow-y: hidden;
+        }
+
+        .nav-scroller .nav {
+            display: flex;
+            flex-wrap: nowrap;
+            padding-bottom: 1rem;
+            margin-top: -1px;
+            overflow-x: auto;
+            text-align: center;
+            white-space: nowrap;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .btn-bd-primary {
+            --bd-violet-bg: #712cf9;
+            --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+            --bs-btn-font-weight: 600;
+            --bs-btn-color: var(--bs-white);
+            --bs-btn-bg: var(--bd-violet-bg);
+            --bs-btn-border-color: var(--bd-violet-bg);
+            --bs-btn-hover-color: var(--bs-white);
+            --bs-btn-hover-bg: #6528e0;
+            --bs-btn-hover-border-color: #6528e0;
+            --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+            --bs-btn-active-color: var(--bs-btn-hover-color);
+            --bs-btn-active-bg: #5a23c8;
+            --bs-btn-active-border-color: #5a23c8;
+        }
+
+        .bd-mode-toggle {
+            z-index: 1500;
+        }
+
+        .bd-mode-toggle .bi {
+            width: 1em;
+            height: 1em;
+        }
+
+        .bd-mode-toggle .dropdown-menu .active .bi {
+            display: block !important;
+        }
+
+        .caja-info-luchador {
+            position: absolute;
+            top: -38px; /* Sobresale un poco por arriba */
+            left: 0; /* Empieza en el extremo izquierdo */
+            width: 100%; /* Llega hasta el extremo derecho */
+            background: #d20a0a;
+            color: white;
+            padding: 8px 0; /* Espaciado arriba y abajo */
+            font-weight: bold;
+            font-size: 0.9rem;
+            text-align: center; /* CENTRA EL TEXTO */
+            z-index: 100;
+            text-transform: uppercase;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            /* Opcional: quita el redondeado si quieres que sea totalmente recta */
+            border-radius: 0;
+        }
+
+        /* Contenedor necesario para que la cajita no flote por toda la web */
+        .contenedor-foto {
+            position: relative;
+        }
+        .col{
+            margin-bottom: 1rem;
+        }
+        .seccion-header-ufc {
+            /* Degradado radial que simula la luz en el centro del Octágono */
+            background: radial-gradient(circle, #1a1a1a 0%, #000000 100%);
+            color: white;
+            padding: 80px 0; /* Más espacio arriba y abajo */
+            border-bottom: 4px solid #d20a0a; /* La línea roja clásica de la marca */
+        }
+
+        /* Estilo para las imágenes de los luchadores */
+        .img-luchador-header {
+            height: 450px; /* Tamaño grande y uniforme */
+            width: auto;
+            object-fit: contain;
+            /* Sombra para que se vean en 3D sobre el fondo negro */
+            filter: drop-shadow(0 15px 30px rgba(0,0,0,0.8));
+            flex-shrink: 0;
+        }
+
+        /* Ajuste del título para fondo oscuro */
+        .seccion-header-ufc h1 {
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .seccion-header-ufc p {
+            color: #adb5bd !important; /* Gris claro para que no canse la vista */
+        }
+        .album-ufc-personalizado {
+            /* Fondo base oscuro profundo */
+            background-color: #0f0f0f;
+
+            /* Imagen de patrón de rejilla (Octágono) */
+            /* Usamos un SVG repetido que simula la red de la jaula */
+            background-image:
+                    radial-gradient(circle at center, rgba(15, 15, 15, 0.1) 0%, #0f0f0f 80%),
+                    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='49' viewBox='0 0 28 49'%3E%3Cpath fill='%231d1d1d' fill-opacity='0.4' d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.91v12.18l11 6.35 11-6.35V17.91L14 11.56l-11 6.35z'/%3E%3C/svg%3E");
+
+            background-attachment: fixed; /* La rejilla se queda quieta al hacer scroll */
+            position: relative;
+            padding-top: 3rem;
+            padding-bottom: 3rem;
+        }
+
+        /* Efecto para que las tarjetas resalten sobre el fondo oscuro */
+        .album-ufc-personalizado .card {
+            background-color: #ffffff;
+            border: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .album-ufc-personalizado .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(210, 10, 10, 0.2); /* Sombra roja sutil */
+        }
+        /* Luchadores Principales (Jones y DJ) */
+        .img-luchador-header {
+            height: 400px; /* Aumentado */
+            width: auto;
+            object-fit: contain;
+            filter: drop-shadow(0 15px 35px rgba(0,0,0,0.8));
+            z-index: 2;
+            transition: transform 0.3s ease;
+        }
+
+        /* Luchadores Secundarios (Nunes y Valentina) */
+        .img-luchador-secundario {
+            height: 300px; /* Aumentado */
+            width: auto;
+            object-fit: contain;
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.6));
+            z-index: 1;
+            /* Un pelín de transparencia para que no roben protagonismo */
+            opacity: 0.9;
+        }
+
+        /* Ajuste del título para que no choque con las fotos grandes */
+        .display-4 {
+            font-size: 2.3rem;
+            font-weight: 900;
+            line-height: 1.1;
+            letter-spacing: -1px;
+        }
+
+        /* En pantallas muy grandes (4K o monitores anchos) damos más aire */
+        @media (min-width: 1600px) {
+            .img-luchador-header { height: 480px; }
+            .img-luchador-secundario { height: 350px; }
+        }
+        .footer-ufc {
+            /* Fondo oscuro con un ligero gradiente para dar profundidad */
+            background: linear-gradient(180deg, #111111 0%, #000000 100%);
+            border-top: 2px solid #d20a0a; /* Línea roja divisoria */
+            color: #ffffff;
+        }
+
+        .footer-ufc p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Estilo para el enlace "Back to top" */
+        .link-rojo {
+            color: #d20a0a;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .link-rojo:hover {
+            color: #ff1a1a;
+            text-decoration: underline;
+        }
+
+        /* Color secundario para detalles menos importantes */
+        .text-secondary {
+            color: #adb5bd !important;
+        }
+    </style>
+</head>
+<body>
+<svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+    <symbol id="check2" viewBox="0 0 16 16">
+        <path
+                d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"
+        ></path>
+    </symbol>
+    <symbol id="circle-half" viewBox="0 0 16 16">
+        <path
+                d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"
+        ></path>
+    </symbol>
+    <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+        <path
+                d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"
+        ></path>
+        <path
+                d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"
+        ></path>
+    </symbol>
+    <symbol id="sun-fill" viewBox="0 0 16 16">
+        <path
+                d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"
+        ></path>
+    </symbol>
+</svg>
+<div
+        class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle"
+>
+    <button
+            class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center"
+            id="bd-theme"
+            type="button"
+            aria-expanded="false"
+            data-bs-toggle="dropdown"
+            aria-label="Toggle theme (auto)"
+    >
+        <svg class="bi my-1 theme-icon-active" aria-hidden="true">
+            <use href="#circle-half"></use>
+        </svg>
+        <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+    </button>
+    <ul
+            class="dropdown-menu dropdown-menu-end shadow"
+            aria-labelledby="bd-theme-text"
+    >
+        <li>
+            <button
+                    type="button"
+                    class="dropdown-item d-flex align-items-center"
+                    data-bs-theme-value="light"
+                    aria-pressed="false"
+            >
+                <svg class="bi me-2 opacity-50" aria-hidden="true">
+                    <use href="#sun-fill"></use>
+                </svg>
+                Light
+                <svg class="bi ms-auto d-none" aria-hidden="true">
+                    <use href="#check2"></use>
+                </svg>
+            </button>
+        </li>
+        <li>
+            <button
+                    type="button"
+                    class="dropdown-item d-flex align-items-center"
+                    data-bs-theme-value="dark"
+                    aria-pressed="false"
+            >
+                <svg class="bi me-2 opacity-50" aria-hidden="true">
+                    <use href="#moon-stars-fill"></use>
+                </svg>
+                Dark
+                <svg class="bi ms-auto d-none" aria-hidden="true">
+                    <use href="#check2"></use>
+                </svg>
+            </button>
+        </li>
+        <li>
+            <button
+                    type="button"
+                    class="dropdown-item d-flex align-items-center active"
+                    data-bs-theme-value="auto"
+                    aria-pressed="true"
+            >
+                <svg class="bi me-2 opacity-50" aria-hidden="true">
+                    <use href="#circle-half"></use>
+                </svg>
+                Auto
+                <svg class="bi ms-auto d-none" aria-hidden="true">
+                    <use href="#check2"></use>
+                </svg>
+            </button>
+        </li>
+    </ul>
+</div>
+<header data-bs-theme="dark">
+    <div class="collapse text-bg-dark" id="navbarHeader">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8 col-md-7 py-4">
+                    <h4>About</h4>
+                    <p class="text-body-secondary">
+                        Add some information about the album below, the author, or any
+                        other background context. Make it a few sentences long so folks
+                        can pick up some informative tidbits. Then, link them off to
+                        some social networking sites or contact information.
+                    </p>
+                </div>
+                <div class="col-sm-4 offset-md-1 py-4">
+                    <h4>Contact</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white">Follow on X</a></li>
+                        <li><a href="#" class="text-white">Like on Facebook</a></li>
+                        <li><a href="#" class="text-white">Email me</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="navbar navbar-dark bg-dark shadow-sm">
+        <div class="container">
+            <a href="#" class="navbar-brand d-flex align-items-center">
+                <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="white"
+                        class="me-2"
+                >
+                    <path d="M21 10.5c0-1.38-1.12-2.5-2.5-2.5H18V7c0-1.66-1.34-3-3-3H9C7.34 4 6 5.34 6 7v1H5.5C4.12 8 3 9.12 3 10.5v8c0 1.38 1.12 2.5 2.5 2.5h13c1.38 0 2.5-1.12 2.5-2.5v-8zM8 7c0-.55.45-1 1-1h6c.55 0 1 .45 1 1v1H8V7zm11 11.5c0 .28-.22.5-.5.5h-13c-.28 0-.5-.22-.5-.5v-8c0-.28.22-.5.5-.5H18.5c.28 0 .5.22.5.5v8z"/>
+                    <path d="M7 11h2v6H7zm4 0h2v6h-2zm4 0h2v6h-2z"/>
+                </svg>
+                <strong>UFC</strong>
+            </a>
+            <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarHeader"
+                    aria-controls="navbarHeader"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+            >
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </div>
+</header>
+<main>
+    <section class="seccion-header-ufc py-5">
+        <div class="container-fluid">
+            <div class="row align-items-center g-0">
+
+                <div class="col-lg-4 d-flex justify-content-center justify-content-lg-end align-items-end">
+                    <img src="https://cdn.evolve-university.com/wp-content/uploads/2021/05/DJ-Site-e1543425906412.png"
+                         alt="Demetrious Johnson" class="img-luchador-secundario me-4">
+                    <img src="https://cdn.prod.website-files.com/6367f8198bef742a30d18cba/63b0a19989102859767e9ad8_wRTreHNMlFDQTCmg1Z07RzlQ_sRcHPd8UAn9pedfguY.png"
+                         alt="Jon Jones" class="img-luchador-header">
+                </div>
+
+                <div class="col-lg-4 text-center px-5">
+                    <h1 class="fw-bold display-4">LOS MEJORES DE LA HISTORIA DE UFC</h1>
+                    <p class="lead mt-3 text-light">
+                        En esta página veremos los mejores luchadores históricamente hablando de cada división de UFC y también el campeón actual de cada división.
+                    </p>
+                    <div class="mt-4 d-flex justify-content-center gap-3">
+                        <a href="#" class="btn btn-danger btn-lg px-4 shadow-sm">Históricos</a>
+                        <a href="#" class="btn btn-outline-light btn-lg px-4">Actuales</a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 d-flex justify-content-center justify-content-lg-start align-items-end">
+                    <img src="https://res.cloudinary.com/fanaticsio/image/fetch/f_auto,q_auto,g_face/https://theallstar.io/wp-content/uploads/2021/07/NUNES_AMANDA_L_BELT.png"
+                         alt="Amanda Nunes" class="img-luchador-header">
+                    <img src="https://ufc.com/images/styles/event_fight_card_upper_body_of_standing_athlete/s3/2025-05/SHEVCHENKO_VALENTINA_BELT_R_05-10.png?itok=Xb0TASpa"
+                         alt="Valentina Shevchenko" class="img-luchador-secundario ms-4">
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <div class="album py-5 album-ufc-personalizado">
+        <div class="container">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-5 gy-5">
+                <div class="col">
+                    <div class="card shadow-sm">
+                        <div class="contenedor-foto">
+                            <div class="caja-info-luchador">
+                                PESO PESADO: STIPE MIOCIC (265 lb)
+                            </div>
+                            <img
+                                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRi8iLWiN2Ro3S6phhFe8u54QeHYQznTfwzqg&s"
+                                    class="card-img-top"
+                                    alt="Stipe Miocic"
+                                    style="height: auto; object-fit: cover; background-color: #222;"
+                            >
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">
+                                Stipe Miocic es considerado por muchos el mejor campeon que a tenido los pesos
+                                pesados
+                                de la UFC en toda su historia debido a su forma de pelear siempre sumamente
+                                inteligente,
+                                sus habilidades tanto en lucha como en striking lo convertian en una arma perfecta
+                                para la
+                                division a pesar de ser considerado un luchador ligero para la division en la que
+                                competia.
+                            </p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <button
+                                            type="button"
+                                            class="btn btn-sm btn-outline-secondary"
+                                    >
+                                        Historia del luchador
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card shadow-sm">
+                        <div class="contenedor-foto">
+                            <div class="caja-info-luchador">
+                                PESO SEMI-PESADO: JON JONES (205 lb)
+                            </div>
+                            <img
+                                    src="https://www.denverpost.com/wp-content/uploads/2019/03/eac0c6ce60a54febb2f53b479dab8f02.jpg?w=525"
+                                    class="card-img-top"
+                                    alt="Jon Jones"
+                                    style="height: auto; object-fit: cover; background-color: #222;"
+                            >
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">
+                                Jon Bones Jones es considerado por practicamente todas las personas que saben acerca
+                                de las artes marciales mixtas
+                                y de la historia de la UFC como el mejor luchador de la historia de este deporte,
+                                considerado por muchos como el mejor
+                                iq de pelea de la historia Jon Jones es el campeon mas joven de la historia de la
+                                compañia y además de ser el reinado
+                                más largo de la historia de la compañia.
+                            </p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <button
+                                            type="button"
+                                            class="btn btn-sm btn-outline-secondary"
+                                    >
+                                        Historia del luchador
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card shadow-sm">
+                        <div class="contenedor-foto">
+                            <div class="caja-info-luchador">
+                                PESO MEDIO: ANDERSON SILVA (185 lb)
+                            </div>
+                            <img
+                                    src="https://www.rollingstone.com/wp-content/uploads/2018/06/silvia-ufc-fight-left-in-him-2017-e1b8803c-fa10-4450-8b11-1768fe922bb5.jpg?w=1581&h=1054&crop=1"
+                                    class="card-img-top"
+                                    alt="Anderson Silva"
+                                    style="height: auto; object-fit: cover; background-color: #222;"
+                            >
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">
+                                La araña Silva es considerado el luchador más espectacular que ha pasado jamás por
+                                el octógono de la UFC su striking salido prácticamente de un videojuego sumado a un
+                                jiu-jitsu brasileño del más altísimo nivel convertían al brasileño en un luchador
+                                prácticamente sin puntos débiles.
+                            </p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <button
+                                            type="button"
+                                            class="btn btn-sm btn-outline-secondary"
+                                    >
+                                        Historia del luchador
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card shadow-sm">
+                        <div class="contenedor-foto">
+                            <div class="caja-info-luchador">
+                                PESO WELTER: GEORGES ST-PIERRE (170 lb)
+                            </div>
+                            <img
+                                    src="https://platform.mmamania.com/wp-content/uploads/sites/110/chorus/uploads/chorus_asset/file/9621361/327_Michael_Bisping_vs_Georges_St_Pierre.jpg?quality=90&strip=all&crop=0%2C0%2C100%2C100&w=2400"
+                                    class="card-img-top"
+                                    alt="Georges ST-Pierre"
+                                    style="height: auto; object-fit: cover; background-color: #222;"
+                            >
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">
+                                El niño bueno de la UFC un luchador prácticamente perfecto en todas las áreas de la pelea pero nunca perfecto del todo,
+                                el canadiense se caracterizaba por siempre tener el plan idílico para cada pelea, un estudioso de esto de la pelea, el campeón
+                                con más defensas del título de la division, sin duda un diferente para su época, de los primeros en explotar al maximo el término
+                                de artista marcial mixto.
+                            </p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <button
+                                            type="button"
+                                            class="btn btn-sm btn-outline-secondary"
+                                    >
+                                        Historia del luchador
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card shadow-sm">
+                        <div class="contenedor-foto">
+                            <div class="caja-info-luchador">
+                                PESO LIGERO: KHABIB NURMAGOMEDOV (155 lb)
+                            </div>
+                            <img
+                                    src="https://news.williamhill.com/wp-content/uploads/2020/10/PA-29168361-1.jpg"
+                                    class="card-img-top"
+                                    alt="Khabib Nurmagomedov"
+                                    style="height: auto; object-fit: cover; background-color: #222;"
+                            >
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">
+                                Si tenemos que hablar de domináncia absoluta sobre su rival a todos nos viene a la cabeza el aguila,
+                                uno de esos luchadores que nos ha hecho ver diferente este deporte, un ajedrecista con su lucha y su boxeo sucio,
+                                sin ninguna duda el luchador que define el término de superioridad. Aun retirandose tempranamente debido a la muerte de su
+                                entrenador y padre su legado perdura con una estirpe de discipulos que nos vienen a enseñar porqué el sambo daguestani es la disciplina
+                                mas completa y dificil de enfrentar de todo el universo de las mmas.
+                            </p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <button
+                                            type="button"
+                                            class="btn btn-sm btn-outline-secondary"
+                                    >
+                                        Historia del luchador
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card shadow-sm">
+                        <div class="contenedor-foto">
+                            <div class="caja-info-luchador">
+                                PESO PLUMA: ALEXANDER VOLKANOVSKI (145 lb)
+                            </div>
+                            <img
+                                    src="https://liveatyourlocal.com.au/app/uploads/2023/01/alex-volkanovski-ufc-266_1797hym3p8qhq1m93odcctr1hv-1024x576.jpg"
+                                    class="card-img-top"
+                                    alt="Alexander Volkanovski"
+                                    style="height: auto; object-fit: cover; background-color: #222;"
+                            >
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">
+                                De practicar rugby de manera profesional a ser una leyenda absoluta de la compañia mas importante del mundo de artes marciales mixtas,
+                                sin duda hay que lavarse la boca y santiguarse antes de hablar de "The Great" un luchador que cuando parece que ya se le acabo la gasolina viene
+                                y hace una pelea por el titulo practicamente salida de un estudio de cine, un fuera de serie y sin ninguna tipo de duda el peso pluma mas completo de la historia.
+                                Cada luchador del peso pluma al salir deberia clamar al cielo "Ave, Alexander, morituri te salutant".
+                            </p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <button
+                                            type="button"
+                                            class="btn btn-sm btn-outline-secondary"
+                                    >
+                                        Historia del luchador
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card shadow-sm">
+                        <div class="contenedor-foto">
+                            <div class="caja-info-luchador">
+                                PESO GALLO: DOMINICK CRUZ (135 lb)
+                            </div>
+                            <img
+                                    src="https://www.sportsnet.ca/wp-content/uploads/2026/01/Dom-768x432.jpg"
+                                    class="card-img-top"
+                                    alt="Dominick Cruz"
+                                    style="height: auto; object-fit: cover; background-color: #222;"
+                            >
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">
+                                The Dominator el primer campeon de la division y el mas longevo un luchador con un striking hignótico, sin duda un fuera de serie,
+                                un luchador que parecia que bailaba pero no un baile comun un baile mortal el cual arrollaba a sus rivales de una manera debastadora.
+                                El primer rey de una de las divisiones mas competitivas de la historia de la compañia la cual desde sus comienzos estuvo llena de leones
+                                hambrientos dispuestos a hacer lo que sea por llegar a la corona.
+                            </p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <button
+                                            type="button"
+                                            class="btn btn-sm btn-outline-secondary"
+                                    >
+                                        Historia del luchador
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card shadow-sm">
+                        <div class="contenedor-foto">
+                            <div class="caja-info-luchador">
+                                PESO MOSCA: DEMETRIOUS JOHNSON (125 lb)
+                            </div>
+                            <img
+                                    src="https://ca-times.brightspotcdn.com/dims4/default/94994bd/2147483647/strip/true/crop/2048x1517+0+0/resize/1200x889!/quality/75/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2Fa4%2F9d%2Ff18c8081d1ea0acb4a7f3d395bf6%2Fla-sp-ufc-wre0038021373-20160423"
+                                    class="card-img-top"
+                                    alt="Demetrious Johnson"
+                                    style="height: auto; object-fit: cover; background-color: #222;"
+                            >
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">
+                                Si algún día nos viene la duda a la cabeza de qué luchador representaría la "A" dentro de las MMA sin duda hay que pensar en
+                                Mighty Mouse. Estamos hablando del luchador con el que sueña ser tu luchador favorito, un mago el cual nunca el fandom supo apreciar, un
+                                luchador el cual tenía todo menos al publico debido a la division en la que peleaba. EL capitan del barco de los que sabemos mucho de este deporte
+                                un luchador que sin duda te dejaba sin palabras con cada pelea que hacia ya que no sabias que truco de magia iba a hacer pero siempre salía con uno.
+                                Al igual que con Volk cada luchador del peso mosca cuando sale al octogono deberia pregonar "Ave, Demetrious, morituri te salutant".
+                            </p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <button
+                                            type="button"
+                                            class="btn btn-sm btn-outline-secondary"
+                                    >
+                                        Historia del luchador
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card shadow-sm">
+                        <div class="contenedor-foto">
+                            <div class="caja-info-luchador">
+                                PESO PLUMA/GALLO FEMENINO: AMANDA NUNES (145/135 lb)
+                            </div>
+                            <img
+                                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7XGnRr6SY_yE8n-EMcUp92i8VJUSYkCGlow&s"
+                                    class="card-img-top"
+                                    alt="Amanda Nunes"
+                                    style="height: auto; object-fit: cover; background-color: #222;"
+                            >
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">
+                                Amanda Nunes es la definicion que la verdadera reina de la sabana es la LEONA. La brasileña paso toda su carrera por la UFC demostrando que es, fue y sera
+                                la luchadora mas dominante que jamas piso un jaula de MMA, llegando a dominar dos divisiones de manera consecutiva durante muchisimos años y siendo
+                                la unica de esta lista de increibles leyendas en ser considerada la goat de dos divisiones sin nigun tipo de discusion. Esta grandiosidad es fruto de las guerras impresionantes
+                                que tenia cada vez que subia a la jaula dominando todas y cada una de ellas. Sin duda el alma de una reina salvaje en el cuerpo de una mera humana.
+                            </p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <button
+                                            type="button"
+                                            class="btn btn-sm btn-outline-secondary"
+                                    >
+                                        Historia del luchador
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card shadow-sm">
+                        <div class="contenedor-foto">
+                            <div class="caja-info-luchador">
+                                PESO MOSCA FEMENINO: VALENTINA SHEVCHENKO (125 lb)
+                            </div>
+                            <img
+                                    src="https://images.tapology.com/letterbox_images/11614/default/IMG_20210609_021953.jpg?1623201635"
+                                    class="card-img-top"
+                                    alt="Valentina Shevchenko"
+                                    style="height: auto; object-fit: cover; background-color: #222;"
+                            >
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">
+                                Si alguna vez te has preguntado si le tienes miedo a las armas, lo comprobarás fácilmente viendo una pelea en directo de "The Bullet".
+                                La reina kirguisa garantiza un "tiroteo" en cada combate con una técnica letal, convirtiendo a sus rivales en juguetes para un espectáculo
+                                de violencia perfecta para disfrute del público ya que a día de hoy no existe una luchadora en el peso gallo que sea a prueba de balas,
+                                y Valentina nunca falla.
+                            </p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <button
+                                            type="button"
+                                            class="btn btn-sm btn-outline-secondary"
+                                    >
+                                        Historia del luchador
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</main>
+<footer class="footer-ufc py-5">
+    <div class="container">
+        <p class="float-end mb-1">
+            <a href="#" class="link-rojo">Volver arriba</a>
+        </p>
+        <p class="mb-1 text-white">
+            <span class="fw-bold">Álbum realizado por:</span> Fermín Blanco Ramírez.<br/>
+            <span class="text-secondary">Periodista deportivo especializado en MMA y en el universo UFC.</span><br/>
+            Domador de fanáticos casuales sabelotodo de las artes marciales en su tiempo libre.<br/>
+            <span class="fst-italic text-danger-emphasis">Poco tolerante a burradas de casuales.</span>
+        </p>
+    </div>
+</footer>
+<script
+        src="../assets/dist/js/bootstrap.bundle.min.js"
+        class="astro-vvvwv3sm"
+></script>
+</body>
+</html>
