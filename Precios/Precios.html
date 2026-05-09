@@ -1,0 +1,655 @@
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content=""/>
+    <meta
+            name="author"
+            content="Mark Otto, Jacob Thornton, and Bootstrap contributors"
+    />
+    <meta name="generator" content="Astro v5.13.2"/>
+    <title>Pricing example · Bootstrap v5.3</title>
+    <link
+            rel="canonical"
+            href="https://getbootstrap.com/docs/5.3/examples/pricing/"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+            crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <meta name="theme-color" content="#712cf9"/>
+    <link href="pricing.css" rel="stylesheet"/>
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+
+        .b-example-divider {
+            width: 100%;
+            height: 3rem;
+            background-color: #0000001a;
+            border: solid rgba(0, 0, 0, 0.15);
+            border-width: 1px 0;
+            box-shadow: inset 0 0.5em 1.5em #0000001a,
+            inset 0 0.125em 0.5em #00000026;
+        }
+
+        .b-example-vr {
+            flex-shrink: 0;
+            width: 1.5rem;
+            height: 100vh;
+        }
+
+        .bi {
+            vertical-align: -0.125em;
+            fill: currentColor;
+        }
+
+        .nav-scroller {
+            position: relative;
+            z-index: 2;
+            height: 2.75rem;
+            overflow-y: hidden;
+        }
+
+        .nav-scroller .nav {
+            display: flex;
+            flex-wrap: nowrap;
+            padding-bottom: 1rem;
+            margin-top: -1px;
+            overflow-x: auto;
+            text-align: center;
+            white-space: nowrap;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .btn-bd-primary {
+            --bd-violet-bg: #712cf9;
+            --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+            --bs-btn-font-weight: 600;
+            --bs-btn-color: var(--bs-white);
+            --bs-btn-bg: var(--bd-violet-bg);
+            --bs-btn-border-color: var(--bd-violet-bg);
+            --bs-btn-hover-color: var(--bs-white);
+            --bs-btn-hover-bg: #6528e0;
+            --bs-btn-hover-border-color: #6528e0;
+            --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+            --bs-btn-active-color: var(--bs-btn-hover-color);
+            --bs-btn-active-bg: #5a23c8;
+            --bs-btn-active-border-color: #5a23c8;
+        }
+
+        .bd-mode-toggle {
+            z-index: 1500;
+        }
+
+        .bd-mode-toggle .bi {
+            width: 1em;
+            height: 1em;
+        }
+
+        .bd-mode-toggle .dropdown-menu .active .bi {
+            display: block !important;
+        }
+
+        body {
+            /* Un gris muy oscuro en lugar de negro puro */
+            background-color: #1a1a1a !important;
+            /* La rejilla ahora es más clara para que se vea sutilmente */
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='49' viewBox='0 0 28 49'%3E%3Cpath fill='%232a2a2a' fill-opacity='0.4' d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.91v12.18l11 6.35 11-6.35V17.91L14 11.56l-11 6.35z'/%3E%3C/svg%3E");
+            background-attachment: fixed;
+        }
+
+        .container-main-style {
+            /* Gris suave degradado (estilo metal cepillado) */
+            background: linear-gradient(145deg, #2c2c2c, #222222);
+
+            border-radius: 24px;
+            padding: 50px;
+            margin-top: 40px;
+            margin-bottom: 60px;
+
+            /* En lugar de sombra negra, usamos una sombra que "levanta" la caja */
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+
+            /* Un borde fino y claro para definir la silueta sin ser agresivo */
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        /* Tarjetas con un tono que resalta sobre el gris del contenedor */
+        .card {
+            background-color: #333333 !important;
+            border: 1px solid #444 !important;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-header {
+            background-color: #3d3d3d !important;
+            color: #ffffff !important;
+            border-bottom: 2px solid #d20a0a !important; /* Rojo UFC */
+        }
+
+        /* Texto: usamos blancos rotos (off-white) para que no cansen la vista */
+        h1, h2, h4, .fs-4 {
+            color: #f8f9fa !important;
+        }
+
+        p, .text-body-secondary, li {
+            color: #ced4da !important; /* Gris claro */
+        }
+
+        /* Forzamos que los envoltorios laterales sean gemelos */
+        .side-wrapper {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            width: 20vw; /* Usamos ancho de pantalla para que sean iguales */
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .side-left {
+            left: 0;
+        }
+
+        .side-right {
+            right: 0;
+        }
+
+        /* El contenedor del enlace debe tener un tamaño fijo */
+        .side-wrapper a {
+            display: block;
+            width: 100%;
+            height: 80vh; /* Altura idéntica para ambos recuadros azules */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .side-banner {
+            width: 100%;
+            height: 100%;
+            /* Forzamos a que ambos luchadores se apoyen en la parte inferior del recuadro */
+            object-fit: contain;
+            object-position: bottom;
+
+            filter: drop-shadow(0 0 20px rgba(0, 0, 0, 0.8)) brightness(0.7);
+            transition: all 0.4s ease;
+        }
+
+        /* Como Conor (izquierda) suele tener menos espacio ocupado en su propio archivo,
+           lo escalamos sutilmente SOLO a él para que rellene el recuadro igual que Khamzat.
+        */
+        /* Ajuste para Conor (Izquierda) */
+        /* Ajuste para Conor (Izquierda) - Lo dejamos como base ahora que se ve bien */
+        #conor-container .side-banner {
+            transform: scale(1.35);
+            margin-top: 60vh;
+            transform-origin: bottom;
+        }
+
+        /* Ajuste específico para Khamzat (Derecha) */
+        #khamzat-container .side-banner {
+            /* SUBIMOS EL SCALE: Estaba en 1.1, lo subimos para igualar a Conor */
+            transform: scale(1.42);
+
+            /* LO BAJAMOS UN POCO:
+               Si ves que Khamzat está más alto que Conor, aumenta este número.
+               Si está muy bajo, redúcelo. */
+            margin-top: 60vh;
+
+            transform-origin: bottom;
+        }
+
+
+        /* Ajuste de la caja principal para que no se solape */
+        @media (min-width: 1200px) {
+            .container-main-style {
+                position: relative;
+                z-index: 2; /* Por encima de las imágenes */
+                max-width: 1300px; /* Estrecha un poco la caja para que se vean mejor los laterales */
+                margin: 40px auto;
+            }
+        }
+
+        /* Desaparecen en tablets y móviles para no tapar el texto */
+        @media (max-width: 1199px) {
+            .side-wrapper {
+                display: none;
+            }
+        }
+
+
+        .pricing-subtitle {
+            font-size: 1.1rem; /* Más pequeño que el título */
+            color: #6c757d; /* Un gris claro azulado (estilo UFC) */
+            margin-top: 15px; /* Espacio debajo del precio */
+            margin-bottom: 5px; /* Espacio antes de la flecha */
+            font-weight: 400;
+        }
+
+        .pricing-arrow {
+            font-size: 1.5rem; /* Flecha un poco más grande */
+            color: #6c757d; /* Color más apagado para la flecha */
+            margin-bottom: 15px; /* Espacio antes del botón */
+            line-height: 1;
+        }
+
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(5px);
+            }
+            60% {
+                transform: translateY(3px);
+            }
+        }
+
+        /* Oscurecer el fondo cuando el modal está activo */
+        .modal-backdrop {
+            background-color: rgba(0, 0, 0, 0.8) !important;
+        }
+
+
+        .modal-header .btn-close {
+            filter: invert(1) grayscale(100%) brightness(200%); /* Hace la 'X' blanca */
+        }
+
+        .modal-body img {
+            width: 100%;
+            max-height: 500px; /* Evita que la foto sea demasiado alta y obligue a hacer scroll */
+            object-fit: cover; /* Recorta la imagen para que encaje perfectamente */
+            border: 1px solid #444;
+        }
+
+
+        .modal-xl {
+            max-width: 1600px !important; /* Más ancho que antes, pero con aire a los lados */
+            width: 90%;
+        }
+
+        /* 1. Eliminar borde rojo del modal y ajustar altura */
+        /* 1. Limpiamos el modal de bordes y ajustamos el padding inferior */
+        .modal-content {
+            min-height: 85vh;
+            background: linear-gradient(180deg, #222 0%, #111 100%) !important;
+            border: none !important;
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.9);
+            border-radius: 20px;
+        }
+
+        /* Ajuste para que el contenedor permita que la imagen llegue al borde inferior */
+        .modal-body {
+            padding-bottom: 0 !important;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Centra todo el contenido horizontalmente */
+        }
+
+        .img-modal-custom {
+            width: 100%;
+            /* Aumentamos significativamente la altura para que el octágono sea grande */
+            height: 650px;
+
+            /* 'contain' asegura que se vea completo, 'bottom' lo pega al suelo */
+            object-fit: contain;
+            object-position: bottom;
+
+            border: none !important;
+            background-color: transparent !important;
+            box-shadow: none !important;
+
+            /* Margen negativo para eliminar cualquier luz que quede en la base */
+            margin-bottom: -5px;
+        }
+    </style>
+</head>
+<body class="py-4">
+<div class="side-wrapper side-left" id="conor-container">
+    <a><img src="https://i.ibb.co/twG9Bhnb/Khamzat-Chimaev.png" alt="Khamzat Chimaev" border="0"
+            class="side-banner"></a>
+</div>
+
+<div class="side-wrapper side-right" id="khamzat-container">
+    <a><img src="https://i.ibb.co/FbT9HYd8/Connor-Mcgregor.png" alt="Connor Mcgregor" border="0"
+            class="side-banner"></a>
+</div>
+<div class="container container-main-style">
+    <header>
+        <div
+                class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom"
+        >
+            <a href="#" class="d-flex align-items-center link-body-emphasis text-decoration-none">
+                <span class="fs-2 fw-bold me-2" style="font-family: sans-serif; letter-spacing: -1px;">UFC</span>
+            </a>
+            <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
+                <a href="#" class="d-flex align-items-center link-body-emphasis text-decoration-none mx-3">
+                    <span class="fs-5 fw-bold me-2" style="font-family: sans-serif; letter-spacing: -1px;">Atencion al cliente</span>
+                </a>
+                <a href="#" class="d-flex align-items-center link-body-emphasis text-decoration-none mx-3">
+                    <span class="fs-5 fw-bold me-2"
+                          style="font-family: sans-serif; letter-spacing: -1px;">Ajustes</span>
+                </a>
+            </nav>
+        </div>
+        <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+            <h1 class="display-4 fw-normal text-body-emphasis">¿Qué campeón quieres ser?</h1>
+            <p class="fs-3 text-body-secondary">
+                Aquí podrás escoger que tipo de campeón quieres ser para conquistar el mejor periódico deportivo en
+                relación con el mundo de las artes marciales mixtas
+                en todo el mundo. Dependiendo del plan que escojas tendrás acceso a imágenes exclusivas, entrevistas con
+                peleadores y staff de la UFC,
+                noticias de última hora, acceso al merchandising de las últimas veladas y acceso a cientos de sorteos
+                disponibles.
+            </p>
+        </div>
+    </header>
+    <main>
+        <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+            <div class="col">
+                <div class="card mb-4 rounded-3 shadow-sm">
+                    <div class="card-header py-3">
+                        <h4 class="my-0 fw-normal">Campeón BMF</h4>
+                    </div>
+                    <div class="card-body">
+                        <h1 class="card-title pricing-card-title">€0<small
+                                class="text-body-secondary fw-light">/mes</small></h1>
+                        <p class="pricing-subtitle">Pulsa aquí para saber qué te incluye</p>
+                        <div class="pricing-arrow">&downarrow;</div>
+                        <button type="button" class="w-100 btn btn-lg btn-outline-primary" data-bs-toggle="modal"
+                                data-bs-target="#modalBMF">
+                            ¿Estás listo para ser el
+                            "Baddest Motherfucker"?
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card mb-4 rounded-3 shadow-sm">
+                    <div class="card-header py-3">
+                        <h4 class="my-0 fw-normal">Campeón de una división</h4>
+                    </div>
+                    <div class="card-body">
+                        <h1 class="card-title pricing-card-title">€5,50<small
+                                class="text-body-secondary fw-light">/mes</small></h1>
+                        <p class="pricing-subtitle">Pulsa aquí para saber qué te incluye</p>
+                        <div class="pricing-arrow">&downarrow;</div>
+                        <button type="button" class="w-100 btn btn-lg btn-outline-primary" data-bs-toggle="modal"
+                                data-bs-target="#modalCampeon">
+                            ¿Podras llegar a ser el rey de una division?
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card mb-4 rounded-3 shadow-sm border-primary">
+                    <div class="card-header py-3 text-bg-primary border-primary">
+                        <h4 class="my-0 fw-normal">Doble campeón</h4>
+                    </div>
+                    <div class="card-body">
+                        <h1 class="card-title pricing-card-title">€10<small
+                                class="text-body-secondary fw-light">/mes</small></h1>
+                        <p class="pricing-subtitle">Pulsa aquí para saber qué te incluye</p>
+                        <div class="pricing-arrow">&downarrow;</div>
+                        <button type="button" class="w-100 btn btn-lg btn-outline-primary" data-bs-toggle="modal"
+                                data-bs-target="#modalDoble">¿Seras capaz de demostrar que
+                            el peso solo es un numero y tu un verdadero campeón?
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center text-center">
+            <div class="col-md-4">
+                <div class="card mb-4 rounded-3 shadow-sm">
+                    <div class="card-header py-3">
+                        <h4 class="my-0 fw-normal">Numero 1 libra x libra</h4>
+                    </div>
+                    <div class="card-body">
+                        <h1 class="card-title pricing-card-title">€17,99<small
+                                class="text-body-secondary fw-light">/mes</small></h1>
+                        <p class="pricing-subtitle">Pulsa aquí para saber qué te incluye</p>
+                        <div class="pricing-arrow">&downarrow;</div>
+                        <button type="button" class="w-100 btn btn-lg btn-outline-primary" data-bs-toggle="modal"
+                                data-bs-target="#modallibraxlibra">¿Tienes madera para ser el
+                            mejor del mundo?
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <div class="row justify-content-center my-5">
+        <div class="col-10 col-md-8 text-center">
+            <img src="https://i.ibb.co/hJzf7wrH/Cinturon.png" class="img-fluid ufc-belt-main"
+                 alt="UFC Championship Belt">
+        </div>
+    </div>
+    <footer class="container py-5">
+        <div class="row">
+            <div class="col-12 col-md">
+                <img
+                        class="mb-2"
+                        src="../../../../../../Downloads/bootstrap-5.3.8-examples/assets/brand/bootstrap-logo.svg"
+                        alt=""
+                        width="24"
+                        height="19"
+                />
+                <small class="d-block mb-3 text-body-secondary"
+                >&copy; 2026-2027</small
+                >
+            </div>
+            <div class="col-6 col-md">
+                <h5>Features</h5>
+                <ul class="list-unstyled text-small">
+                    <li class="mb-1">
+                        <a class="link-secondary text-decoration-none" href="#"
+                        >Cool stuff</a
+                        >
+                    </li>
+                    <li class="mb-1">
+                        <a class="link-secondary text-decoration-none" href="#"
+                        >Random feature</a
+                        >
+                    </li>
+                    <li class="mb-1">
+                        <a class="link-secondary text-decoration-none" href="#"
+                        >Team feature</a
+                        >
+                    </li>
+                    <li class="mb-1">
+                        <a class="link-secondary text-decoration-none" href="#"
+                        >Stuff for developers</a
+                        >
+                    </li>
+                    <li class="mb-1">
+                        <a class="link-secondary text-decoration-none" href="#"
+                        >Another one</a
+                        >
+                    </li>
+                    <li class="mb-1">
+                        <a class="link-secondary text-decoration-none" href="#"
+                        >Last time</a
+                        >
+                    </li>
+                </ul>
+            </div>
+            <div class="col-6 col-md">
+                <h5>Resources</h5>
+                <ul class="list-unstyled text-small">
+                    <li class="mb-1">
+                        <a class="link-secondary text-decoration-none" href="#"
+                        >Resource</a
+                        >
+                    </li>
+                    <li class="mb-1">
+                        <a class="link-secondary text-decoration-none" href="#"
+                        >Resource name</a
+                        >
+                    </li>
+                    <li class="mb-1">
+                        <a class="link-secondary text-decoration-none" href="#"
+                        >Another resource</a
+                        >
+                    </li>
+                    <li class="mb-1">
+                        <a class="link-secondary text-decoration-none" href="#"
+                        >Final resource</a
+                        >
+                    </li>
+                </ul>
+            </div>
+            <div class="col-6 col-md">
+                <h5>About</h5>
+                <ul class="list-unstyled text-small">
+                    <li class="mb-1">
+                        <a class="link-secondary text-decoration-none" href="#">Team</a>
+                    </li>
+                    <li class="mb-1">
+                        <a class="link-secondary text-decoration-none" href="#"
+                        >Locations</a
+                        >
+                    </li>
+                    <li class="mb-1">
+                        <a class="link-secondary text-decoration-none" href="#"
+                        >Privacy</a
+                        >
+                    </li>
+                    <li class="mb-1">
+                        <a class="link-secondary text-decoration-none" href="#"
+                        >Terms</a
+                        >
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</div>
+<div class="modal fade" id="modalBMF" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-content bg-dark text-white border-danger">
+            <div class="modal-header border-secondary">
+                <h5 class="modal-title">Plan BMF </h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body text-center">
+                <div class="px-4 mb-5">
+                    <h2 class="display-5 fw-bold text-danger">Ventajas de Campeón</h2>
+                    <p class="fs-4 text-secondary">
+                        Aquí puedes escribir todo el texto que necesites. Al ser un modal XL,
+                        tienes espacio de sobra para explicar detalladamente los beneficios,
+                        entrevistas exclusivas y accesos VIP.
+                    </p>
+                </div>
+
+                <div class="row g-0 mt-auto">
+                    <div class="w-100 mt-4">
+                        <img src="https://i.ibb.co/93frRgWz/Octogono.png" alt="Octogono" border="0" class="img-modal-custom">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalCampeon" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-content bg-dark text-white border-danger">
+            <div class="modal-header border-secondary">
+                <h5 class="modal-title">Estatus de Campeón</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body text-center">
+                <div class="px-4 mb-5">
+                    <h2 class="display-5 fw-bold text-danger">Ventajas de Campeón</h2>
+                    <p class="fs-4 text-secondary">
+                        Aquí puedes escribir todo el texto que necesites. Al ser un modal XL,
+                        tienes espacio de sobra para explicar detalladamente los beneficios,
+                        entrevistas exclusivas y accesos VIP.
+                    </p>
+                </div>
+
+                <div class="row g-0 mt-auto">
+                    <div class="w-100 mt-4">
+                        <img src="https://i.ibb.co/93frRgWz/Octogono.png" alt="Octogono" border="0" class="img-modal-custom">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalDoble" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-content bg-dark text-white border-danger">
+            <div class="modal-header border-secondary">
+                <h5 class="modal-title">Estatus de Doble Campeón </h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body text-center">
+                <div class="px-4 mb-5">
+                    <h2 class="display-5 fw-bold text-danger">Ventajas de Campeón</h2>
+                    <p class="fs-4 text-secondary">
+                        Aquí puedes escribir todo el texto que necesites. Al ser un modal XL,
+                        tienes espacio de sobra para explicar detalladamente los beneficios,
+                        entrevistas exclusivas y accesos VIP.
+                    </p>
+                </div>
+
+                <div class="row g-0 mt-auto">
+                    <div class="w-100 mt-4">
+                        <img src="https://i.ibb.co/93frRgWz/Octogono.png" alt="Octogono" border="0" class="img-modal-custom">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modallibraxlibra" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-content bg-dark text-white border-danger">
+            <div class="modal-header border-secondary">
+                <h5 class="modal-title">Numero 1 libra x libra</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body text-center">
+                <div class="px-4 mb-5">
+                    <h2 class="display-5 fw-bold text-danger">The Goat</h2>
+                    <p class="fs-4 text-secondary">
+                        Aquí puedes escribir todo el texto que necesites. Al ser un modal XL,
+                        tienes espacio de sobra para explicar detalladamente los beneficios,
+                        entrevistas exclusivas y accesos VIP.
+                    </p>
+                </div>
+
+                <div class="row g-0 mt-auto">
+                    <div class="w-100 mt-4">
+                        <img src="https://i.ibb.co/93frRgWz/Octogono.png" alt="Octogono" border="0" class="img-modal-custom">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
