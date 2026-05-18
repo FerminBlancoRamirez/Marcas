@@ -246,6 +246,128 @@
             padding-left: 20px;
             padding-right: 20px;
         }
+
+        /* --- ESTILOS PARA PC (Escritorio) --- */
+        .news-card {
+            background-color: #000;
+            min-height: 500px; /* Ajusta la altura a tu gusto */
+        }
+
+        .news-bg-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .content-box {
+            max-width: 600px;
+        }
+
+        /* --- ESTILOS PARA MÓVIL Y TABLET (Menos de 768px) --- */
+        @media (max-width: 767.98px) {
+            .news-card {
+                height: 600px; /* Altura fija en móvil para que luzca la foto */
+            }
+
+            /* La imagen pasa a ser el fondo de toda la tarjeta */
+            .news-image-container {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: 1;
+            }
+
+            .news-bg-img {
+                opacity: 0.6; /* Oscurecemos un poco la foto de fondo */
+            }
+
+            /* El recuadro del texto con transparencia */
+            .content-box {
+                position: relative;
+                z-index: 3;
+                background: rgba(0, 0, 0, 0.7); /* Transparencia negra suave */
+                backdrop-filter: blur(5px); /* Efecto de cristal esmerilado */
+                border-radius: 15px;
+                margin: 20px;
+                border: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            .col-md-7 {
+                height: 100%;
+                justify-content: center; /* Centra el texto verticalmente en móvil */
+            }
+        }
+
+        /* Altura fija del carrusel para que la imagen no se mueva */
+        .news-row {
+            height: 600px; /* Puedes subirlo a 700px si quieres que sea más alto */
+            background-color: #000;
+        }
+
+        .news-bg-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Área de scroll para el texto */
+        .scroll-area {
+            max-height: 300px; /* Límite antes de que empiece el scroll */
+            overflow-y: auto;
+            padding-right: 15px;
+        }
+
+        /* Personalización de la barra de scroll (Estetica UFC) */
+        .scroll-area::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        .scroll-area::-webkit-scrollbar-track {
+            background: #111;
+        }
+
+        .scroll-area::-webkit-scrollbar-thumb {
+            background: #d20a0a;
+            border-radius: 10px;
+        }
+
+        /* --- MODO MÓVIL / TABLET --- */
+        @media (max-width: 768px) {
+            .news-row {
+                height: 100vh; /* Pantalla completa en móvil */
+            }
+
+            .news-image-container {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: 1;
+            }
+
+            .news-bg-img {
+                opacity: 0.4; /* Imagen de fondo más oscura */
+            }
+
+            .content-box {
+                position: relative;
+                z-index: 5;
+                background: rgba(0, 0, 0, 0.7); /* Transparencia */
+                backdrop-filter: blur(8px); /* Desenfoque */
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                border-radius: 15px;
+                margin: 15px;
+                max-height: 85vh; /* Evita que el cuadro se salga de la pantalla */
+            }
+
+            .scroll-area {
+                max-height: 40vh; /* Scroll más corto en móvil */
+            }
+        }
     </style>
 </head>
 <body>
@@ -274,40 +396,132 @@
 </header>
 
 <main>
-    <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active"></button>
-            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1"></button>
-        </div>
+    <div id="newsCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
         <div class="carousel-inner">
+
             <div class="carousel-item active">
-                <div class="container">
-                    <div class="carousel-caption text-start">
-                        <h1>Los Mejores de la Historia.</h1>
-                        <p>Explora el álbum de los gladiadores modernos.</p>
-                        <p><a class="btn btn-lg btn-ufc" href="#">Ver Álbum</a></p>
+                <div class="news-card position-relative overflow-hidden">
+                    <div class="row g-0 align-items-stretch news-row">
+                        <div class="col-md-7 d-flex align-items-center z-3">
+                            <div class="content-box p-4 p-md-5">
+                                <h2 class="fw-black text-uppercase display-5">El Fenomeno fracasado</h2>
+                                <div class="scroll-area">
+                                    <p class="lead my-4">
+                                        Joel "El fenomeno" Alvarez cae de manera estrepitosa en su busqueda por hacerse
+                                        hueco en la division mas complicada del momento, el asturiano fue atropellado
+                                        por el camion ucraniano el cual lo domino durante los dos asaltos que duro la
+                                        pelea volviendo a poner en evidencia la falta de suelo del "Fenomeno" y
+                                        finalizandolo en el segundo asalto tras una serie de transiciones casi poeticas.
+                                    </p>
+                                    <a href="#" class="btn btn-danger px-4 py-2 fw-bold mb-3">VER DATOS DE LA PELEA</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-5 news-image-container">
+                            <img src="https://imgresizer.eurosport.com/unsafe/1200x0/filters:format(jpeg)/origin-imgresizer.eurosport.com/2026/05/10/image-5e4b421f-461f-4c26-bba3-a2fdf0216000-85-2560-1440.jpeg"
+                                 class="news-bg-img" alt="Joel Alvarez">
+                        </div>
                     </div>
-                    <img src="https://i.ibb.co/twG9Bhnb/Khamzat-Chimaev.png" class="img-carousel-ufc d-none d-lg-block">
                 </div>
             </div>
+
             <div class="carousel-item">
-                <div class="container">
-                    <img src="https://i.ibb.co/8n2xQGdq/maxresdefault-1.png" alt="maxresdefault(1)" border="0"
-                         class="img-carousel-ufc d-none d-lg-block" style="left:auto; right:10%;">
-                    <div class="carousel-caption">
-                        <h1>Únete a la Experiencia.</h1>
-                        <p>Acceso exclusivo a eventos numerados.</p>
-                        <p><a class="btn btn-lg btn-ufc" href="#">Ver Planes</a></p>
+                <div class="news-card position-relative overflow-hidden">
+                    <div class="row g-0 align-items-start news-row pt-5">
+                        <div class="col-md-7 d-flex flex-column z-3">
+                            <div class="content-box p-4 p-md-5">
+                                <h2 class="fw-black text-uppercase display-5">JOSHUA "EL PRODIGIO" VAN</h2>
+                                <div class="scroll-area">
+                                    <p class="lead my-4">
+                                        Joshua Van tras su última actuación demuestra que no es casualidad que sea el
+                                        segundo campeon más joven de la historia de la UFC. Tenemos que recordar que el
+                                        birmano solo lleva practicando artes marciales desde 2018 algo que es llamativo
+                                        ya que muchisimos artistas marciales practican disciplinas relacionadas desde
+                                        que son niños, algo curioso esque en una de sus primeras peleas dentro de la UFC
+                                        se descubrio que llevaba practicando lucha, posiblemente la disciplina mas
+                                        dominante de la historia de la ufc, tan solo 6 meses. Sin hablar mucho, a base
+                                        de guerras, y con un estilo de fajador impresionante el joven campeon se postula
+                                        como el mayor prodigio de la compañia, algo que no veiamos desde Jon Jones el
+                                        mejor de la historia.
+                                    </p>
+                                    <a href="#" class="btn btn-danger px-4 py-2 fw-bold mb-3">VER DATOS DEL LUCHADOR</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-5 news-image-container">
+                            <img src="https://cdn.digitalagencybangkok.com/file/client-cdn/gnlm/wp-content/uploads/2025/06/1000011953.jpg"
+                                 class="news-bg-img" alt="Joshua Van">
+                        </div>
                     </div>
-                    <img src="https://i.ibb.co/ycqDprLk/maxresdefault-1-1.png" alt="maxresdefault(1)(1)" border="0"
-                         class="img-carousel-ufc d-none d-lg-block" style="left:10%; right:auto;">
                 </div>
             </div>
+
+            <div class="carousel-item">
+                <div class="news-card position-relative overflow-hidden">
+                    <div class="row g-0 align-items-start news-row pt-5">
+                        <div class="col-md-7 d-flex align-items-center z-3">
+                            <div class="content-box p-4 p-md-5">
+                                <h2 class="fw-black text-uppercase display-5">EL LOBO QUE PELEO SIN HAMBRE</h2>
+                                <div class="scroll-area">
+                                    <p class="lead my-4">
+                                        Sean Strickland da la sorpresa y vuelve a demostrar que es un luchador de maxima
+                                        elite
+                                        arrebatandole el titulo Khamzat Chimaev con una decision dividida en la que
+                                        vimos al
+                                        lobo checheno casi sin fuerza, muchos fanaticos opinan que el corte de peso de
+                                        Khamzat condiciono
+                                        toda la pelea haciendo que el ex-campeon no pudiera rendir ni a un 50%.
+                                    </p>
+                                    <a href="#" class="btn btn-danger px-4 py-2 fw-bold mb-3">VER DATOS DE LA PELEA</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-5 news-image-container">
+                            <img src="https://images.daznservices.com/di/library/DAZN_News/4f/e0/sean-strickland-vs-khamzat-chimaev_ur0otq2ywjxl1ta3geqq7foaw.jpg?t=316711870"
+                                 class="news-bg-img" alt="Joshua Van">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <div class="news-card position-relative overflow-hidden">
+                    <div class="row g-0 align-items-start news-row pt-5">
+                        <div class="col-md-7 d-flex align-items-center z-3">
+                            <div class="content-box p-4 p-md-5">
+                                <h2 class="fw-black text-uppercase display-5">SOLO PUEDE QUEDAR UNO</h2>
+                                <div class="scroll-area">
+                                    <p class="lead my-4">
+                                        Dani Barez se encuentra en una posicion sumamente complicada ya que tras su
+                                        ultima
+                                        derrota sabe que se encuentra en una muy mala posicion ya que la UFC esta
+                                        haciendo una
+                                        limpieza masiva de persona y el tiene medio nombre escrito en las papeletas, la
+                                        suerte que tiene
+                                        es que su proximo rival, Luis Gurule, se encuentra en una posicion aun peor ya
+                                        que no ha sido capaz
+                                        de ganar ni una sola de sus tres peleas en la compañia mas competitiva del
+                                        mundo.
+                                        ¿Quien podra tener un poco mas de aire?
+                                    </p>
+                                    <a href="#" class="btn btn-danger px-4 py-2 fw-bold mb-3">VER PREVIA DE LA PELEA</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-5 news-image-container">
+                            <img src="https://s.yimg.com/ny/api/res/1.2/pbUynb5DDmNu0i6nG9Onrg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTY0MDtoPTM2MDtjZj13ZWJw/https://media.zenfs.com/en/clutchpoints_articles_939/9dd770cb32acc741889e64d3326f6cbc"
+                                 class="news-bg-img" alt="Joshua Van">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#newsCarousel" data-bs-slide="prev">
             <span class="carousel-control-prev-icon"></span>
         </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+        <button class="carousel-control-next" type="button" data-bs-target="#newsCarousel" data-bs-slide="next">
             <span class="carousel-control-next-icon"></span>
         </button>
     </div>
