@@ -1,0 +1,749 @@
+<!doctype html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content=""/>
+
+    <meta name="generator" content="Astro v5.13.2"/>
+    <title>Blog UFC</title>
+    <link
+            rel="canonical"
+            href="https://getbootstrap.com/docs/5.3/examples/blog/"
+    />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <meta name="theme-color" content="#1a1a1a"/>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap"
+          rel="stylesheet"/>
+    <link href="blog.css" rel="stylesheet"/>
+    <style>
+        body {
+            background-color: #1a1a1a !important;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='49' viewBox='0 0 28 49'%3E%3Cpath fill='%232a2a2a' fill-opacity='0.4' d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.91v12.18l11 6.35 11-6.35V17.91L14 11.56l-11 6.35z'/%3E%3C/svg%3E");
+            background-attachment: fixed;
+            color: #ffffff;
+        }
+
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+
+        .b-example-divider {
+            width: 100%;
+            height: 3rem;
+            background-color: rgba(0, 0, 0, 0.1);
+            border: solid rgba(0, 0, 0, 0.15);
+            border-width: 1px 0;
+            box-shadow: inset 0 0.5em 1.5em rgba(0, 0, 0, 0.1),
+            inset 0 0.125em 0.5em rgba(0, 0, 0, 0.15);
+        }
+
+        .b-example-vr {
+            flex-shrink: 0;
+            width: 1.5rem;
+            height: 100vh;
+        }
+
+        .bi {
+            vertical-align: -0.125em;
+            fill: currentColor;
+        }
+
+        .nav-scroller {
+            position: relative;
+            z-index: 2;
+            height: 2.75rem;
+            overflow-y: hidden;
+        }
+
+        .nav-scroller .nav {
+            display: flex;
+            flex-wrap: nowrap;
+            padding-bottom: 1rem;
+            margin-top: -1px;
+            overflow-x: auto;
+            text-align: center;
+            white-space: nowrap;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .btn-bd-primary {
+            --bd-violet-bg: #712cf9;
+            --bd-violet-rgb: 113, 44, 249;
+            --bs-btn-font-weight: 600;
+            --bs-btn-color: #fff;
+            --bs-btn-bg: var(--bd-violet-bg);
+            --bs-btn-border-color: var(--bd-violet-bg);
+            --bs-btn-hover-color: #fff;
+            --bs-btn-hover-bg: #6528e0;
+            --bs-btn-hover-border-color: #6528e0;
+            --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+            --bs-btn-active-color: var(--bs-btn-hover-color);
+            --bs-btn-active-bg: #5a23c8;
+            --bs-btn-active-border-color: #5a23c8;
+        }
+
+        .card-ufc {
+            background-color: #2c2c2c !important;
+            border: 1px solid #444 !important;
+        }
+
+        .card-ufc .card-body {
+            color: #ddd;
+        }
+
+        .container-blog {
+            width: 85%;
+            max-width: 2000px;
+            padding-left: 0.75rem;
+            padding-right: 0.75rem;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        @media (max-width: 768px) {
+            .container-blog {
+                width: 92%;
+            }
+        }
+
+        .carousel-hero .carousel-item {
+            min-height: 500px;
+            background: linear-gradient(145deg, #2c2c2c, #222222);
+            border-bottom: 3px solid #d20a0a;
+        }
+
+        .carousel-hero .carousel-indicators button {
+            background-color: #d20a0a;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .carousel-hero .carousel-control-prev,
+        .carousel-hero .carousel-control-next {
+            width: 8%;
+        }
+
+        .btn-ufc {
+            background-color: #d20a0a;
+            color: white;
+            font-weight: bold;
+            text-transform: uppercase;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 0;
+        }
+
+        .btn-ufc:hover {
+            background-color: #ff1a1a;
+            color: white;
+        }
+
+        @media (max-width: 991.98px) {
+            .carousel-hero .carousel-item {
+                min-height: 400px;
+            }
+        }
+
+        .blog-post h2 {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #d20a0a !important;
+        }
+
+        .blog-post h3 {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #d20a0a !important;
+        }
+
+        .blog-post p, .blog-post li, .blog-post dd, .blog-post blockquote {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 400;
+            font-size: 1.2rem;
+            line-height: 1.7;
+            color: #ccc;
+        }
+
+        .blog-post .news-image {
+            max-width: 100%;
+            max-height: 600px;
+            width: auto;
+            height: auto;
+            display: block;
+            margin: 25px auto 0;
+            border-radius: 8px;
+            border: 1px solid #333;
+        }
+
+        .blog-post-meta {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 300;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #888 !important;
+            font-size: 0.85rem;
+        }
+
+        .blog-post code {
+            font-size: 0.9rem;
+            color: #ff6b6b;
+        }
+
+        .blog-post a {
+            color: #d20a0a;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .blog-post a:hover {
+            text-decoration: underline;
+        }
+
+        .blog-post blockquote {
+            border-left: 4px solid #d20a0a;
+            padding: 15px 20px;
+            background: rgba(210, 10, 10, 0.05);
+        }
+
+        .blog-pagination .btn {
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .sidebar-links a {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.2s;
+            display: block;
+            padding: 6px 0;
+        }
+
+        .sidebar-links a:hover {
+            color: #d20a0a;
+        }
+    </style>
+</head>
+<body>
+
+<svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+    <symbol
+            id="aperture"
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+    >
+        <circle cx="12" cy="12" r="10"></circle>
+        <path
+                d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"
+        ></path>
+    </symbol>
+    <symbol id="cart" viewBox="0 0 16 16">
+        <path
+                d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"
+        ></path>
+    </symbol>
+    <symbol id="chevron-right" viewBox="0 0 16 16">
+        <path
+                fill-rule="evenodd"
+                d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
+        ></path>
+    </symbol>
+</svg>
+<div class="container-blog">
+    <header class="border-bottom border-danger border-2 lh-1 py-3">
+        <div class="d-flex align-items-center justify-content-center position-relative py-3">
+            <div>
+                <a
+                        class="blog-header-logo text-body-emphasis text-decoration-none"
+                        href="#"
+                >UFC</a
+                >
+            </div>
+            <div class="position-absolute end-0 d-flex align-items-center me-2">
+                <a class="link-secondary" href="#" aria-label="Search">
+                    <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="20"
+                            height="20"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            class="mx-3"
+                            role="img"
+                            viewBox="0 0 24 24"
+                    >
+                        <title>Search</title>
+                        <circle cx="10.5" cy="10.5" r="7.5"></circle>
+                        <path d="M21 21l-5.2-5.2"></path>
+                    </svg>
+                </a>
+                <a class="btn btn-sm btn-outline-secondary" href="#">Registrate</a>
+            </div>
+        </div>
+    </header>
+    <div class="nav-scroller py-1 mb-3 border-bottom">
+        <nav class="nav nav-underline justify-content-center gap-5">
+            <a class="nav-item nav-link link-body-emphasis px-3" href="#">Precios</a>
+            <a class="nav-item nav-link link-body-emphasis px-3" href="#">Album</a>
+            <a class="nav-item nav-link link-body-emphasis px-3" href="#">Carrusel</a>
+        </nav>
+    </div>
+</div>
+<main class="container-blog">
+    <div class="d-flex align-items-center gap-3 mb-3 mt-2">
+        <span class="badge bg-danger fs-5 px-3 py-2 rounded-0">NOTICIAS DE LUCHADORES</span>
+        <hr class="flex-grow-1 border-danger m-0 opacity-50">
+    </div>
+    <div id="heroCarousel" class="carousel slide carousel-hero mb-4 rounded overflow-hidden" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></button>
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
+        </div>
+        <div class="carousel-inner rounded">
+            <div class="carousel-item active">
+                <div class="position-relative d-flex align-items-center" style="min-height: 500px;">
+                    <div class="d-lg-none position-absolute start-0 top-0 w-100 h-100">
+                        <img src="https://s1.abcstatics.com/abc/www/multimedia/deportes/2026/03/16/conor-mcgregor-mma-RkIUPj1d92FDYU4ndpbK3TP-1200x840@diario_abc.jpg"
+                             class="w-100 h-100" style="object-fit: cover;">
+                        <div class="position-absolute start-0 top-0 w-100 h-100"
+                             style="background: rgba(0,0,0,0.7);"></div>
+                    </div>
+                    <img src="https://www.mma.es/wp-content/uploads/2026/03/Conor-McGregor-UFC.png"
+                         class="d-none d-lg-block position-absolute end-0 top-0 h-100"
+                         style="width: 45%; object-fit: contain; object-position: center;">
+                    <div class="position-relative p-4 p-md-5 text-white" style="max-width: 55%; z-index: 2;">
+                        <span class="badge bg-danger mb-2">NOTICIA DE ULTIMA HORA</span>
+                        <h1 class="display-4 fst-italic">The king is back</h1>
+                        <p class="lead my-3">Conor "The Notorious" Mcgregor estara volviendo a la jaula de la ufc 5 años
+                            despues
+                            de su terrible lesion de tobillo y se vera las caras con un antiguo rival que lo esperaba
+                            con ansias...</p>
+                        <a class="btn btn-ufc" href="#" data-bs-toggle="modal" data-bs-target="#modalNoticia1">Continue
+                            leyendo</a>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="position-relative d-flex align-items-center" style="min-height: 500px;">
+                    <div class="d-lg-none position-absolute start-0 top-0 w-100 h-100">
+                        <img src="https://talksport.com/wp-content/uploads/2025/06/OQ-TALKSPORT_MMA-JONES_OP.jpg?strip=all&w=960"
+                             class="w-100 h-100" style="object-fit: cover;">
+                        <div class="position-absolute start-0 top-0 w-100 h-100"
+                             style="background: rgba(0,0,0,0.7);"></div>
+                    </div>
+                    <img src="https://talksport.com/wp-content/uploads/2025/06/OQ-TALKSPORT_MMA-JONES_OP.jpg?strip=all&w=960"
+                         class="d-none d-lg-block position-absolute end-0 top-0 h-100"
+                         style="width: 45%; object-fit: contain; object-position: center;">
+                    <div class="position-relative p-4 p-md-5 text-white" style="max-width: 55%; z-index: 2;">
+                        <span class="badge bg-danger mb-2">NOTICIA DE ULTIMA HORA</span>
+                        <h1 class="display-4 fst-italic">Jon Jones y su interminable guerra con la UFC</h1>
+                        <p class="lead my-3">Tras la impresionante victoria del excampeon de los pesos pesados
+                            Francis Ngannou en la compañia MVP Promotions, el goat de la compañia mostro interes en
+                            realizar la pelea que todos quisimos ver
+                            y nunca se dio...</p>
+                        <a class="btn btn-ufc" href="#" data-bs-toggle="modal" data-bs-target="#modalNoticia2">Continua
+                            leyendo</a>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="position-relative d-flex align-items-center" style="min-height: 500px;">
+                    <div class="d-lg-none position-absolute start-0 top-0 w-100 h-100">
+                        <img src="https://preview.redd.it/he-beat-the-best-striker-and-the-best-grappler-both-as-v0-x4n9u6jaf90h1.png?width=640&crop=smart&auto=webp&s=57ff7542f53ae354902360b3458b8ad02640daf3"
+                             class="w-100 h-100" style="object-fit: cover;">
+                        <div class="position-absolute start-0 top-0 w-100 h-100"
+                             style="background: rgba(0,0,0,0.7);"></div>
+                    </div>
+                    <img src="https://preview.redd.it/he-beat-the-best-striker-and-the-best-grappler-both-as-v0-x4n9u6jaf90h1.png?width=640&crop=smart&auto=webp&s=57ff7542f53ae354902360b3458b8ad02640daf3"
+                         class="d-none d-lg-block position-absolute end-0 top-0 h-100"
+                         style="width: 45%; object-fit: contain; object-position: center;">
+                    <div class="position-relative p-4 p-md-5 text-white" style="max-width: 55%; z-index: 2;">
+                        <span class="badge bg-danger mb-2">NOTICIA DE ULTIMA HORA</span>
+                        <h1 class="display-4 fst-italic">¿La lucha ya no sirve para ser campeon?</h1>
+                        <p class="lead my-3">Tras la impresionante y inesperada victoria de Sean Strickland sobre el
+                            lobo checheno
+                            Khamzat Chimaev el publico a empezado a poner en duda la eficiencia de la disciplina que por
+                            años domino el deporte...</p>
+                        <a class="btn btn-ufc" href="#" data-bs-toggle="modal" data-bs-target="#modalNoticia3">Continua
+                            leyendo</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Anterior</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Siguiente</span>
+        </button>
+    </div>
+    <div class="row mb-2">
+        <div class="col-md-6">
+            <div
+                    class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative card-ufc"
+            >
+                <div class="col p-4 d-flex flex-column position-static">
+                    <h3 class="border-bottom border-danger pb-2 mb-3">Paddy "The Baddy" Pimblett is back</h3>
+                    <p class="card-text mb-auto">
+                        Tras su fracaso estrepitoso en su ultima pelea en la cual buscaba hacerse con el campeonato
+                        interino
+                        Paddy The Baddy vuelve para demostrar que la anterior pelea solo fue una mala noche
+                    </p>
+                    <p>Esta vez su rival sera "El dios de la guerra" Benoit Saint Denis, el frances vendra a hundir aun
+                        mas el mito del ingles con su estilo de lucha directo y sin freno, pero el ex-militar frances
+                        podria llevarse una gran sorpresa ya que Paddy lo que si ha demostrado esque esta listo para la
+                        guerra.</p>
+                </div>
+                <div class="col-auto d-none d-lg-block" style="width: 250px;">
+                    <div class="bg-secondary overflow-hidden" style="height: 250px;">
+                        <img src="https://objetos-xlk.estaticos-marca.com/uploads/2026/02/26/69a0656aece2a.jpeg"
+                             class="w-100 h-100" style="object-fit: cover;">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div
+                    class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative card-ufc"
+            >
+                <div class="col p-4 d-flex flex-column position-static">
+
+                    <h3 class="border-bottom border-danger pb-2 mb-3">Josh Hokit el nuevo villano favorito </h3>
+                    <p class="mb-auto">
+                        Despues de su fantastica actuacion contra Curtis Blaydes el estadounidense ha conseguido lo que
+                        tanto buscaba que era estar en boca de todos.
+                    </p>
+                    <p>Mientras muchos lo señalan como ridiculo o lo comparan con otros personajes que ya hemos tenido
+                        de este estilo como el propio Colby Covington señalando ademas que le durara poco esta micro
+                        fama lo unico de lo que podemos estar seguros es que su objetivo de estar en boca de todos lo ha
+                        cumplido. </p>
+
+                </div>
+                <div class="col-auto d-none d-lg-block" style="width: 250px;">
+                    <div class="bg-secondary overflow-hidden" style="height: 250px;">
+                        <img src="https://objetos-xlk.estaticos-marca.com/uploads/2026/04/12/69db218d05e01.jpeg"
+                             class="w-100 h-100" style="object-fit: cover;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="text-center mb-4">
+        <button class="btn btn-ufc" data-bs-toggle="modal" data-bs-target="#modalProximamente">Más noticias como estas
+        </button>
+    </div>
+    <div class="row g-5">
+        <div class="col-md-8">
+            <div class="d-flex align-items-center gap-3 mb-4 mt-5 pt-3">
+                <span class="badge bg-danger fs-2 px-4 py-3 rounded-0 fw-bolder">NOTICIAS DE LA EMPRESA</span>
+                <hr class="flex-grow-1 border-danger m-0 opacity-50" style="height: 3px;">
+            </div>
+            <article class="blog-post">
+                <h2 class="display-5 link-body-emphasis mb-1">UFC FREEDOM 250: ¿Éxito rotundo o fracaso
+                    inimaginable?</h2>
+                <p class="blog-post-meta">Mayo 18, 2026 por: Fermín</p>
+                <hr/>
+                <p>
+                    Tras meses de espera tras el anuncio de la cartelera que tendra lugar en mas ni menos que la casa
+                    blanca, ya quedan contados dias para que veamos si de verdad el hype que la compañia intento crear
+                    con esta cartelera es real o simplemente es fraude que no han intentado colar como caviar.
+                </p>
+                <p>Si miramos a las peleas estelares la verdad es que no crean la gran emocion ya que tanto Ilia Topuria
+                    como Alex Pereira parecen claros favoritos debido a su impresionante dominacion en sus ultimas
+                    actuaciones algo que hace que al fandom real no le crea mucha ilusion ya que se esperaban vueltas de
+                    grandes estrellas o peleas que remarcaran mas algunas divisiones que estan claramente que arden.
+                    Aunque claramente no podemos olvidar que esto son MMA y que nunca se puede subestimar a nadie tanto
+                    Justin Gaethe como Ciryl Gane no parece que puedan tener nada contra los campeones.</p>
+                <p>La pelea que mas ilusion puede crear, sin embargo, es sin duda la del Poatan ya que podriamos estar
+                    viendo al primer triple campeon de la historia de la compañia algo que sin duda pondra el nombre del
+                    brasileño en lo mas alto de la lista de los mejores de la historia.
+                </p>
+                <p>Luego si miramos a las peleas demas peleas todo da la sensacion de que son peleas mas de relleno con
+                    una minima esperanza de algun ko espectacular que de peleas que de verdad creer un sentimiento
+                    competitivo tan para sus divisiones como para el publico.</p>
+
+                <img src="https://platform.mmamania.com/wp-content/uploads/sites/110/2026/04/HGYioNibgAATTdQ_ed3a94.jpeg?quality=90&strip=all&crop=2.3,10.24,95.4,50.88"
+                     class="news-image" alt="UFC 250">
+            </article>
+            <article class="blog-post">
+                <h2 class="display-5 link-body-emphasis mb-1">PARAMOUNT EL SALVAVIDAS DE LA UFC</h2>
+                <p class="blog-post-meta">Mayo 16, 2026 por: Fermín</p>
+                <hr/>
+                <p>
+                    El nuevo contrato que acaba de firmar la ufc con Paramount ha hecho volver a ilusionarse a tanto
+                    peleadores en alza como a toda la fanaticada de la UFC ya que promete el crecimiento de los sueldos
+                    de los luchadores una guerra que mantenian ciento de peleadores con la compañia a la cual se habian
+                    sumado cientos de miles de fanaticos los cuales opinaban que no hacia sentido que te jugaras todo,
+                    sobre todo en tu arranque en la compañia, por sueldos que muchas veces eran incluso insuficientes
+                    para pagar todo lo que conlleva ser luchador en la mejor compañia del mundo.
+                </p>
+                <p>Segun ultimos informas Paramount le esta haciendo un pago de al rededor de 25 millones de dolares por
+                    evento a la UFC por los derechos televisivos y de publicidad.</p>
+                <p>Gracias a este acuerdo tanto los bonos de pelea de la noche como actuacion de la noche pasan de tener
+                    un valor inicial de 50.000$ a 100.000$, incluyendo tambien nuevos bonos por finalizaciones de
+                    25.000$ siempre y cuando esa finalizacion no cuente para el bono de finalizacion de la noche</p>
+                <p>Igualmente muchos luchadores siguen sintiendo que el pago es insuficiente y mas teniendo en cuenta
+                    los contratos que se estan ofreciendo en la nueva parte de la empresa llamada ZUFFA Boxing la cual
+                    unicamente organiza eventos de boxeo, generando contratos como el realizado al boxeador Connor Ben
+                    al cual se le otorgara una bolse de entre 15 a 20 millones por pelea en la promotora.</p>
+
+                <img src="https://notifight.com/download/multimedia.normal.a95705c47e87ec2d.bm9ybWFsLndlYnA=.webp"
+                     class="news-image" alt="Peso UFC">
+            </article>
+        </div>
+        <div class="col-md-4">
+            <div class="position-sticky" style="top: 2rem">
+                <div class="p-4 mb-3 rounded"
+                     style="background: linear-gradient(145deg, #2c2c2c, #222222); border: 1px solid rgba(255,255,255,0.08);">
+                    <div class="mb-3">
+                        <span class="badge bg-danger fs-6 px-2 py-1 rounded-0 fw-bolder">NOTICIAS, VELADAS, DEBATES Y OPINIONES</span>
+                    </div>
+                    <p class="mb-0">
+                        En esta pagina se dara informacion de ultimo momento de UFC, opiniones sobre veladas pasadas y
+                        futuras y se intentara generar debates sobre algunos temas.
+                    </p>
+                </div>
+                <div>
+                    <div class="mb-3">
+                        <span class="badge bg-danger fs-6 px-2 py-1 rounded-0 fw-bolder">POSTS RECIENTES</span>
+                    </div>
+                    <ul class="list-unstyled">
+                        <li class="position-relative">
+                            <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top"
+                               href="#">
+                                <div class="bg-secondary rounded overflow-hidden d-flex align-items-center justify-content-center"
+                                     style="width: 96px; height: 96px; min-width: 96px;">
+                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAidFYpWJ8jFVoNsAQXbP8IUIDcDuWrFsvPg&s"
+                                         class="w-100 h-100" style="object-fit: cover;">
+                                </div>
+                                <div class="col-lg-8">
+                                    <h6 class="mb-0">Ilia Topuria, el mayor payaso de la ufc</h6>
+                                    <small class="text-body-secondary">Mayo 14, 2026</small>
+                                </div>
+                            </a>
+                            <button class="btn btn-outline-danger btn-sm position-absolute rounded-0 py-0 px-2" style="bottom: 10px; right: 10px; font-size: 0.7rem; font-family: 'Oswald', sans-serif; letter-spacing: 0.5px; z-index: 2;" data-bs-toggle="modal" data-bs-target="#modalProximamente">Ir a la noticia</button>
+                        </li>
+                        <li class="position-relative">
+                            <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top"
+                               href="#">
+                                <div class="bg-secondary rounded overflow-hidden d-flex align-items-center justify-content-center"
+                                     style="width: 96px; height: 96px; min-width: 96px;">
+                                    <img src="https://ufc.com/images/styles/card_advance_small_280x356/s3/2025-12/1272025-Joshua-Van-UFC-323-GettyImages-2250450850.jpeg?itok=EFEkT42q"
+                                         class="w-100 h-100" style="object-fit: cover;">
+                                </div>
+                                <div class="col-lg-8">
+                                    <h6 class="mb-0">Joshua Van el prodigio que nadie esperaba</h6>
+                                    <small class="text-body-secondary">Mayo 14, 2026</small>
+                                </div>
+                            </a>
+                            <button class="btn btn-outline-danger btn-sm position-absolute rounded-0 py-0 px-2" style="bottom: 10px; right: 10px; font-size: 0.7rem; font-family: 'Oswald', sans-serif; letter-spacing: 0.5px; z-index: 2;" data-bs-toggle="modal" data-bs-target="#modalProximamente">Ir a la noticia</button>
+                        </li>
+                        <li class="position-relative">
+                            <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top"
+                               href="#">
+                                <div class="bg-secondary rounded overflow-hidden d-flex align-items-center justify-content-center"
+                                     style="width: 96px; height: 96px; min-width: 96px;">
+                                    <img src="https://i.redd.it/snxzlp8y35q91.jpg" class="w-100 h-100"
+                                         style="object-fit: cover;">
+                                </div>
+                                <div class="col-lg-8">
+                                    <h6 class="mb-0">Alexander Volkanovski el rey inmortal</h6>
+                                    <small class="text-body-secondary">Mayo 14, 2026</small>
+                                </div>
+                            </a>
+                            <button class="btn btn-outline-danger btn-sm position-absolute rounded-0 py-0 px-2" style="bottom: 10px; right: 10px; font-size: 0.7rem; font-family: 'Oswald', sans-serif; letter-spacing: 0.5px; z-index: 2;" data-bs-toggle="modal" data-bs-target="#modalProximamente">Ir a la noticia</button>
+                        </li>
+                        <li class="position-relative">
+                            <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top"
+                               href="#">
+                                <div class="bg-secondary rounded overflow-hidden d-flex align-items-center justify-content-center text-white-50"
+                                     style="width: 96px; height: 96px; min-width: 96px;"><img
+                                        src="https://s1.abcstatics.com/abc/www/multimedia/deportes/2024/12/06/pantoja-alexandre-Rs5pXimTwC4FwKsxCVTgBLI-1200x840@diario_abc.jpeg"
+                                        class="w-100 h-100"
+                                        style="object-fit: cover;">
+                                </div>
+                                <div class="col-lg-8">
+                                    <h6 class="mb-0">Alex Pantoja el rey al que nadie miraba</h6>
+                                    <small class="text-body-secondary">Mayo 14, 2026</small>
+                                </div>
+                            </a>
+                            <button class="btn btn-outline-danger btn-sm position-absolute rounded-0 py-0 px-2" style="bottom: 10px; right: 10px; font-size: 0.7rem; font-family: 'Oswald', sans-serif; letter-spacing: 0.5px; z-index: 2;" data-bs-toggle="modal" data-bs-target="#modalProximamente">Ir a la noticia</button>
+                        </li>
+                    </ul>
+                </div>
+                <div class="p-4">
+                    <div class="d-flex align-items-center gap-2 mb-3">
+                        <span class="badge bg-danger fs-6 px-2 py-1 rounded-0 fw-bolder">RESULTADOS DE CARTELERAS PASADAS</span>
+                    </div>
+                    <ol class="list-unstyled mb-0 sidebar-links">
+                        <li><a href="https://www.ufcespanol.com/event/ufc-fight-night-may-16-2026#1311">UFC Fight Night:
+                            Allen VS Costa</a></li>
+                        <li><a href="https://www.ufcespanol.com/event/ufc-328#1310">UFC 328: Chimaev VS Strickland</a>
+                        </li>
+                        <li><a href="https://www.ufcespanol.com/event/ufc-fight-night-may-02-2026">UFC Fight Night:
+                            Della Maddalena VS Prates</a></li>
+                        <li><a href="https://www.ufcespanol.com/event/ufc-fight-night-april-25-2026">UFC Fight Night:
+                            Sterling Zalal</a></li>
+                        <li><a href="https://www.ufcespanol.com/event/ufc-fight-night-april-18-2026">UFC Fight Night:
+                            Burns VS MalotT</a></li>
+                        <li><a href="https://www.ufcespanol.com/event/ufc-327">UFC 327: Prochazka VS Ulberg</a></li>
+                    </ol>
+                </div>
+                <div class="p-4">
+                    <div class="mb-3">
+                        <span class="badge bg-dark text-danger border border-danger fs-6 px-2 py-1 rounded-0 fw-bolder">REDES SOCIALES</span>
+                    </div>
+                    <ol class="list-unstyled mb-0 sidebar-links" style="font-size: 0.95rem;">
+                        <li><a href="https://github.com/FerminBlancoRamirez">GitHub</a></li>
+                        <li><a href="https://www.instagram.com/feryo_2003_/">Instagram</a></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<footer class="py-5 text-center text-secondary"
+        style="background: linear-gradient(180deg, #111111 0%, #000000 100%); border-top: 2px solid #d20a0a;">
+    <p class="mb-0"><a href="#">Volver al inicio</a></p>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+<div class="modal fade" id="modalNoticia1" tabindex="-1" data-bs-backdrop="static">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+        <div class="modal-content" style="background: linear-gradient(145deg, #2c2c2c, #222222); color: #fff;">
+            <div class="modal-header border-danger">
+                <h5 class="modal-title fw-bold">CONOR MCGREGOR: EL REGRESO</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <img src="https://ufc.com/images/styles/background_image_sm/s3/2026-05/050926-UFC-329-McGregor-vs-Holloway-Announcement-HERO%20%281%29.jpg?h=d1cb525d&itok=FqikrlP1"
+                     class="w-100 rounded mb-3" style="max-height: 300px; object-fit: contain;">
+                <p class="lead">Conor "The Notorious" McGregor estará volviendo a la jaula de la UFC 5 años después de
+                    su terrible lesión de tobillo y se verá las caras con un antiguo rival que lo esperaba con
+                    ansias.</p>
+                <p>El irlandés, ex-campeón de dos divisiones, ha estado fuera de acción desde que sufrió una grave
+                    lesión en su combate contra Dustin Poirier en 2021. Después de un largo proceso de rehabilitación y
+                    múltiples rumores sobre su regreso, la espera ha terminado.</p>
+                <p>Se estara viendo las caras contra ni mas ni menos que Max Holloway, el hawaiano que busca su
+                    venganza contra el irlandes dos divisiones por encima de la que fue su primera pelea, los dos ya
+                    madurados a golpes prometen una guerra que dejara el evento de la casa blanca como un mero
+                    calentamiento para la velada principal</p>
+                <p>McGregor llega con la misma confianza y carisma de siempre, prometiendo demostrar que sigue siendo el
+                    mejor. Sus fans alrededor del mundo esperan ansiosos ver al "Notorious" de vuelta en el octágono,
+                    listo para escribir un nuevo capítulo en su legendaria carrera.</p>
+            </div>
+            <div class="modal-footer border-secondary">
+                <button type="button" class="btn btn-ufc" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalNoticia2" tabindex="-1" data-bs-backdrop="static">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+        <div class="modal-content" style="background: linear-gradient(145deg, #2c2c2c, #222222); color: #fff;">
+            <div class="modal-header border-danger">
+                <h5 class="modal-title fw-bold">EL MEJOR DEL MUNDO VS EL PODER DE KO MAS ATERRADOR QUE EXISTE</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <img src="https://www.si.com/.image/c_fill,w_720,ar_16:9,f_auto,q_auto,g_auto/MTk4MDQxNTMxNzcxMjY2MjM4/jon-jones-francis-ngannou.jpg"
+                     class="w-100 rounded mb-3" style="max-height: 300px; object-fit: contain;">
+                <p class="lead">Tras la atronadora victoria de Francis Ngannou vs Philipe Lins el mejor de la historia
+                    tiro una bomba contra la UFC dando a entender que jamas volveran a negociar con el Africano y
+                    haciendo referencia a que lo tienen encerrado algo que suena impresionante considerando que a muchos
+                    otros luchadores los han dejado participar en diferentes eventos que no tienen relacion con la
+                    compañia y que como anuncio hace tiempo ya Jons el se retiro del deporte a ese grandisimo nivel.</p>
+                <p class="lead">Aunque los fans mas fieles de la compañia señalan que la leyenda mas grande del deporte
+                    no deberia
+                    arriesgarse con tontas peleas simplemente por dinero y que deberia dejar su legado tal cual esta,
+                    parece que Jon Jones le entusiasma con creces esta pelea la cual ya habia creado muchisimo hype en
+                    su momento ya que parecia el reto definitivo contra el mejor de la historia algo que el publico mas
+                    casual sigue opinando</p>
+                <p> ¿Tu que piensas la compañia solo protege a su leyenda o aun quieren exprimirle mas el jugo?</p>
+            </div>
+            <div class="modal-footer border-secondary">
+                <button type="button" class="btn btn-ufc" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalNoticia3" tabindex="-1" data-bs-backdrop="static">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+        <div class="modal-content" style="background: linear-gradient(145deg, #2c2c2c, #222222); color: #fff;">
+            <div class="modal-header border-danger">
+                <h5 class="modal-title fw-bold">¿STRIKING O LUCHA?</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <img src="https://www.mundodeportivo.com/files/image_449_220/files/fp/uploads/2024/04/10/6616a5d2d1202.r_d.463-347-4677.jpeg"
+                     class="w-100 rounded mb-3" style="max-height: 300px; object-fit: contain;">
+                <p class="lead">Tras la impresionante victoria del estadounidense el publico no deja de realizarse esa
+                    pregunta ya que actualmente el unico campeon que es caracterizado por su estilo de lucha es el
+                    daguestani Islam Mackachev, algo que sorprende al publico ya que llevamos años viendo como la lucha
+                    o la mezcla de lucha con bjj es la convinacion perfecta para ser una campeon duradero y
+                    dominante, aunque como ya se venia avisando parece que por fin estamos comenzando a ver la
+                    transicion definitiva de que los nuevos prospectos que entran a la compañia ya no son o boxeadores
+                    adaptados, luchadores adaptados, si no mas bien una mezcla perfecta de todo algo que puede llegar a
+                    hacer mas atractivo el contenido para el publico casual que no aprecia la hermosura de los agarres,
+                    los derribos o las submisiones. Sin duda este cambio puede ser una bendicion para muchos y una
+                    catastrofe para otros</p>
+
+            </div>
+            <div class="modal-footer border-secondary">
+                <button type="button" class="btn btn-ufc" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="modalProximamente" tabindex="-1" data-bs-backdrop="static">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content" style="background: linear-gradient(145deg, #2c2c2c, #222222); color: #fff;">
+            <div class="modal-header border-danger">
+                <h5 class="modal-title fw-bold">PRÓXIMAMENTE</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body text-center py-5">
+                <i class="bi bi-tools text-danger" style="font-size: 4rem;"></i>
+                <p class="lead mt-3 mb-0">Servicio aún no disponible,<br>estamos entrenando para ello</p>
+            </div>
+            <div class="modal-footer border-secondary">
+                <button type="button" class="btn btn-ufc" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
